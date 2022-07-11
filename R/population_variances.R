@@ -56,7 +56,10 @@ pop_cov <-
 #'
 #' # For comparision
 #' sd(x) # divides by n - 1
-sd_var <-
+pop_sd <-
   function(x, na.rm = FALSE){
     sqrt(pop_var(x = x, na.rm = na.rm))
   }
+
+
+
