@@ -13,3 +13,20 @@
 #'
 #' @format A data.frame
 "table_2.2"
+
+
+#' Box 3.7 from FEDAI
+#'
+#' This hypothetical dataset has two columns, a realized treatment (`Z`) and a revealed outcome (`Y`). The purpose of the dataset is to illustrate how traditional t-tests and randomization inference can yield different answers
+#'
+#' @format A data.frame
+"box_3.7"
+
+
+#' Table 3.3 from FEDAI
+#'
+#' This hypothetical dataset has the treated (`Y_Z_1`) and untreated (`Y_Z_0`) potential outcomes for 14 villages in two blocks.
+#'
+#' @format A data.frame
+"table_3.3"
+
