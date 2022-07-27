@@ -30,3 +30,19 @@
 #' @format A data.frame
 "table_3.3"
 
+
+
+#' Table 3.6 from FEDAI
+#'
+#' This hypothetical dataset has the treated (`Y_Z_1`) and untreated (`Y_Z_0`) potential outcomes for 12 classrooms in 4 schools (high sampling variability)
+#'
+#' @format A data.frame
+"table_3.6"
+
+
+#' Table 3.7 from FEDAI
+#'
+#' This hypothetical dataset has the treated (`Y_Z_1`) and untreated (`Y_Z_0`) potential outcomes for 12 classrooms in 4 schools (low sampling variability)
+#'
+#' @format A data.frame
+"table_3.7"
