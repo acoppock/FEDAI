@@ -46,3 +46,10 @@
 #'
 #' @format A data.frame
 "table_3.7"
+
+#' Table 4.1 from FEDAI
+#'
+#' Schedule of potential outcomes, pretest scores, and group assignments for simulated teacher incentives experiment
+#'
+#' @format A data.frame
+"table_4.1"
