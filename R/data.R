@@ -53,3 +53,38 @@
 #'
 #' @format A data.frame
 "table_4.1"
+
+#' Table 4.2 from FEDAI
+#'
+#' Block random assignment of teacher incentives experiment
+#'
+#' @format A data.frame
+"table_4.2"
+
+#' Table 5.1 from FEDAI
+#'
+#' Hypothetical schedule of potential outcomes assuming one-sided noncompliance
+#'
+#' @format A data.frame
+"table_5.1"
+
+#' Table 6.4 from FEDAI
+#'
+#' Hypothetical schedule of potential outcomes and assigned treatments for illustration of a downstream experiment
+#'
+#' @format A data.frame
+"table_6.4"
+
+#' Table 7.1 from FEDAI
+#'
+#' Hypothetical potential outcomes for eight subjects
+#'
+#' @format A data.frame
+"table_7.1"
+
+#' Table 7.2 from FEDAI
+#'
+#' Complete set of potential outcomes and covariates for eight subjects
+#'
+#' @format A data.frame
+"table_7.2"
