@@ -96,3 +96,20 @@
 #'
 #' @format A data.frame
 "arceneaux_2005"
+
+
+#' clingingsmith_etal_2009 from FEDAI
+#'
+#' David Clingingsmith, Asim Ijaz Khwaja, Michael Kremer,
+#' Estimating the Impact of The Hajj:
+#' Religion and Tolerance in Islam's Global Gathering,
+#' The Quarterly Journal of Economics, Volume 124, Issue 3, August 2009, Pages 1133–1170,
+#' https://doi.org/10.1162/qjec.2009.124.3.1133
+#'
+#' These data describe 958 who were randomly selected to go on Hajj via lottery. The outcome Y_views describes these individuals' post-treatment views of others.
+#'
+#' @format A data.frame
+"clingingsmith_etal_2009"
+
+
+

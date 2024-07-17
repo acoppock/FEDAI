@@ -1,5 +1,3 @@
-
-
 #' The true standard error of a two-arm experiment under complete random assignment
 #'
 #' @param var_Y0 the variance of the untreated potential outcomes

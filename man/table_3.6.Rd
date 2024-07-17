@@ -11,6 +11,6 @@ A data.frame
 table_3.6
 }
 \description{
-This hypothetical dataset has the treated (\code{Y_Z_1}) and untreated (\code{Y_Z_0}) potential outcomes for 12 classrooms in 4 schools
+This hypothetical dataset has the treated (\code{Y_Z_1}) and untreated (\code{Y_Z_0}) potential outcomes for 12 classrooms in 4 schools (high sampling variability)
 }
 \keyword{datasets}
