@@ -3,7 +3,7 @@ Type: Package
 Title: Tables and Datasets used in Field Experiments: Design, Analysis, and Interpretation
 Version: 0.1.0
 Author: person("Alexander", "Coppock", email = "acoppock@gmail.com", role = c("aut"), comment = c(ORCID = "0000-0002-5733-2386"))
-Maintainer: The package maintainer <yourself@somewhere.net>
+Maintainer: person("Alexander", "Coppock", email = "acoppock@gmail.com", comment = c(ORCID = "0000-0002-5733-2386"))
 Description: FEDAI provides the tables and datasets used
 License: MIT + file LICENSE
 Encoding: UTF-8
