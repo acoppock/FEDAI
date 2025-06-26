@@ -23,6 +23,14 @@
 #' @export
 lm_bootstrap <- function(formula, data, times = 1000, ...) {
   dots <- rlang::enquos(...)
+  args <- purrr::map(dots, rlang::eval_tidy, data = dat)
+
+  original_mod <- do.call(estimatr::lm_robust, c(list(
+    formula = formula,
+    data = data,
+    se_type = "none"
+  ), args))
+  term_levels <- tidy(original_mod)$term
 
   boot_samples <- rsample::bootstraps(data, times = times)
 
@@ -30,16 +38,23 @@ lm_bootstrap <- function(formula, data, times = 1000, ...) {
     dplyr::mutate(
       model = purrr::map(splits, function(s) {
         dat <- rsample::analysis(s)
-        args <- purrr::map(dots, rlang::eval_tidy, data = dat)
-        do.call(estimatr::lm_robust, c(list(formula = formula, data = dat, se_type = "none"), args))
+
+        do.call(estimatr::lm_robust, c(list(
+          formula = formula,
+          data = dat,
+          se_type = "none"
+        ), args))
       }),
       coefs = purrr::map(model, broom::tidy)
     ) |>
     dplyr::select(id, coefs) |>
-    tidyr::unnest(coefs)
+    tidyr::unnest(coefs) |>
+    dplyr::mutate(term = factor(term, levels = term_levels))
 
-  class(boot_results) <- c("lm_bootstrap", class(boot_results))
-  return(boot_results)
+  ret <- list(original_mod = original_mod, boot_results = boot_results)
+
+  class(ret) <- c("lm_bootstrap", class(ret))
+  return(ret)
 }
 
 #' Summarize bootstrap estimates from lm_bootstrap
@@ -67,14 +82,18 @@ lm_bootstrap <- function(formula, data, times = 1000, ...) {
 #' @importFrom dplyr group_by summarize select
 #' @export
 tidy.lm_bootstrap <- function(x, alpha = 0.05, ...) {
-  x |>
+  estimate <- x$original_mod |> tidy() |> select(term, estimate)
+
+  uncertainty <-
+    x$boot_results |>
     dplyr::group_by(term) |>
     dplyr::summarize(
       std.error = sd(estimate),
       conf.low = quantile(estimate, alpha / 2),
       conf.high = quantile(estimate, 1 - alpha / 2),
-      estimate = mean(estimate),
       .groups = "drop"
-    ) |>
-    dplyr::select(term, estimate, std.error, conf.low, conf.high)
+    )
+
+  ret <- estimate |> dplyr::left_join(uncertainty, by = dplyr::join_by(term))
+  ret
 }
