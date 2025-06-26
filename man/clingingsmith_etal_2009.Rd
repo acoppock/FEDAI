@@ -18,6 +18,6 @@ The Quarterly Journal of Economics, Volume 124, Issue 3, August 2009, Pages 1133
 https://doi.org/10.1162/qjec.2009.124.3.1133
 }
 \details{
-These data describe 958 who were randomly selected to go on Hajj via lottery. The outcome Y_views describes these individuals' post-treatment views of others.
+These data describe 958 Pakistani Muslims who were randomly selected to go on Hajj via lottery. The outcome Y_views describes these individuals' post-treatment views of others.
 }
 \keyword{datasets}
