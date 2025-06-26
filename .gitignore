@@ -1,10 +1,9 @@
-.Rproj.user
+# RStudio project files
+.Rproj.user/
 .Rhistory
 .Rapp.history
 .RData
 .Ruserdata
+
+# macOS system file
 .DS_Store
-.Rproj.user/
-.Rproj.user/9F29A888/pcs/files-pane.pper
-.Rproj.user/9F29A888/pcs/windowlayoutstate.pper
-.Rproj.user/shared/notebooks/paths
