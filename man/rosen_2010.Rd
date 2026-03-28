@@ -11,11 +11,9 @@ A data.frame
 rosen_2010
 }
 \description{
-Jeff Rosen
-The Effects of Race and Grammar Quality on the Responsiveness of American State Legislators: A Field Experiment,
-Working paper, 2010.
+Jeff Rosen. The Effects of Race and Grammar Quality on the Responsiveness of American State Legislators: A Field Experiment. Working paper, 2010.
 }
 \details{
-These data describe 400 observations of state legislators who were sent letters requesting information about immigration rules. The race of the sender was randomly manipulated through the name (Colin or Jose), as was the grammar of the letter (good or bad). The dataset records whether the request received a response and whether the legislator is themselves hispanic or not.
+400 letters sent to state legislators in a 2x2 factorial experiment varying the apparent ethnicity of the author and the quality of the grammar. Columns: \code{observation}, \code{letter_name} (name used on letter), \code{X_legislator_hispanic} (1 = legislator is Hispanic), \code{Z_hispanic} (1 = Hispanic name), \code{Z_grammar_label} (factor: "good"/"bad"), \code{Z_good_grammar} (1 = good grammar), \code{Y_response} (1 = legislator replied).
 }
 \keyword{datasets}

@@ -11,6 +11,6 @@ A data.frame
 table_4_1
 }
 \description{
-Schedule of potential outcomes, pretest scores, and group assignments for simulated teacher incentives experiment
+Schedule of potential outcomes and pretest scores for a simulated teacher incentives experiment. Columns: \code{observation}, \code{X_pretest} (pretest score, strong covariate), \code{X_pretest_weak} (pretest score, weak covariate), \code{Z} (realized treatment assignment), \code{Y_Z_0}, \code{Y_Z_1}.
 }
 \keyword{datasets}

@@ -12,7 +12,7 @@
 #'
 #' @examples
 #' boot_out <- lm_bootstrap(mpg ~ wt + hp, data = mtcars, times = 100)
-#' tidy(boot_out, alpha = 0.05)
+#' broom::tidy(boot_out, alpha = 0.05)
 #'
 #' @importFrom dplyr mutate select
 #' @importFrom purrr map
@@ -23,7 +23,7 @@
 #' @export
 lm_bootstrap <- function(formula, data, times = 1000, ...) {
   dots <- rlang::enquos(...)
-  args <- purrr::map(dots, rlang::eval_tidy, data = dat)
+  args <- purrr::map(dots, rlang::eval_tidy, data = data)
 
   original_mod <- do.call(estimatr::lm_robust, c(list(
     formula = formula,
@@ -63,23 +63,22 @@ lm_bootstrap <- function(formula, data, times = 1000, ...) {
 #' bootstrap standard errors, and confidence intervals for each model term.
 #'
 #' @param x An object of class `lm_bootstrap`.
-#' @param alpha Significance level for confidence intervals (e.g. 0.05 for 95\% CI).
+#' @param alpha Significance level for confidence intervals (e.g. 0.05 for a 95% CI).
 #' @param ... Ignored.
 #'
 #' @return A data frame with columns:
-#' \describe{
-#'   \item{term}{Model term}
-#'   \item{estimate}{Mean bootstrap estimate}
-#'   \item{std.error}{Bootstrap standard deviation}
-#'   \item{conf.low}{Lower confidence bound}
-#'   \item{conf.high}{Upper confidence bound}
-#' }
+#' - `term`: Model term
+#' - `estimate`: Mean bootstrap estimate
+#' - `std.error`: Bootstrap standard deviation
+#' - `conf.low`: Lower confidence bound
+#' - `conf.high`: Upper confidence bound
 #'
 #' @examples
 #' boot_out <- lm_bootstrap(mpg ~ wt + hp, data = mtcars, times = 100)
-#' tidy(boot_out, alpha = 0.05)
+#' broom::tidy(boot_out, alpha = 0.05)
 #'
 #' @importFrom dplyr group_by summarize select
+#' @importFrom stats sd quantile
 #' @export
 tidy.lm_bootstrap <- function(x, alpha = 0.05, ...) {
   estimate <- x$original_mod |> tidy() |> select(term, estimate)

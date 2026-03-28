@@ -9,18 +9,18 @@
 \arguments{
 \item{x}{An object of class \code{lm_bootstrap}.}
 
-\item{alpha}{Significance level for confidence intervals (e.g. 0.05 for 95\\% CI).}
+\item{alpha}{Significance level for confidence intervals (e.g. 0.05 for a 95\% CI).}
 
 \item{...}{Ignored.}
 }
 \value{
 A data frame with columns:
-\describe{
-\item{term}{Model term}
-\item{estimate}{Mean bootstrap estimate}
-\item{std.error}{Bootstrap standard deviation}
-\item{conf.low}{Lower confidence bound}
-\item{conf.high}{Upper confidence bound}
+\itemize{
+\item \code{term}: Model term
+\item \code{estimate}: Mean bootstrap estimate
+\item \code{std.error}: Bootstrap standard deviation
+\item \code{conf.low}: Lower confidence bound
+\item \code{conf.high}: Upper confidence bound
 }
 }
 \description{
@@ -29,6 +29,6 @@ bootstrap standard errors, and confidence intervals for each model term.
 }
 \examples{
 boot_out <- lm_bootstrap(mpg ~ wt + hp, data = mtcars, times = 100)
-tidy(boot_out, alpha = 0.05)
+broom::tidy(boot_out, alpha = 0.05)
 
 }

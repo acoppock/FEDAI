@@ -11,6 +11,6 @@ A data.frame
 table_4_2
 }
 \description{
-Block random assignment of teacher incentives experiment
+Block random assignment of teacher incentives experiment. Columns: \code{observation}, \code{block}, \code{X_pretest}, \code{X_pretest_weak}, \code{Z} (realized treatment assignment), \code{prob} (assignment probability), \code{wt} (inverse-probability weight), \code{Y_Z_0}, \code{Y_Z_1}.
 }
 \keyword{datasets}

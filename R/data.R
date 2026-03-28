@@ -1,7 +1,7 @@
 #' arceneaux_2005 from FEDAI
 #'
-#' Arceneaux, K. (2005). Using Cluster Randomized Field Experiments to Study Voting Behavior. The ANNALS of the American Academy of Political and Social Science, 601(1), 169-179
-#' These data are from a precinct-level randomized field experiment conducted in Kansas City, Missouri. The columns in this subset of the data include the precinct, whether the subject voted in the 2003 election (the outcome variable), whether contact was successful, and the assigned treatment status)
+#' Arceneaux, K. (2005). Using Cluster Randomized Field Experiments to Study Voting Behavior. The ANNALS of the American Academy of Political and Social Science, 601(1), 169-179.
+#' Precinct-level cluster-randomized field experiment in Kansas City, Missouri. Columns: `precinct`, `Z` (treatment assignment), `D_contact` (whether contact with the household was successful), `Y_voted_2003` (outcome: voted in 2003 election).
 #'
 #' @format A data.frame
 "arceneaux_2005"
@@ -28,11 +28,9 @@
 
 #' rosen_2010 from FEDAI
 #'
-#' Jeff Rosen
-#' The Effects of Race and Grammar Quality on the Responsiveness of American State Legislators: A Field Experiment,
-#' Working paper, 2010.
+#' Jeff Rosen. The Effects of Race and Grammar Quality on the Responsiveness of American State Legislators: A Field Experiment. Working paper, 2010.
 #'
-#' These data describe 400 observations of state legislators who were sent letters requesting information about immigration rules. The race of the sender was randomly manipulated through the name (Colin or Jose), as was the grammar of the letter (good or bad). The dataset records whether the request received a response and whether the legislator is themselves hispanic or not.
+#' 400 letters sent to state legislators in a 2x2 factorial experiment varying the apparent ethnicity of the author and the quality of the grammar. Columns: `observation`, `letter_name` (name used on letter), `X_legislator_hispanic` (1 = legislator is Hispanic), `Z_hispanic` (1 = Hispanic name), `Z_grammar_label` (factor: "good"/"bad"), `Z_good_grammar` (1 = good grammar), `Y_response` (1 = legislator replied).
 #'
 #' @format A data.frame
 "rosen_2010"
@@ -60,28 +58,28 @@
 
 #' Table 3.6 from FEDAI
 #'
-#' This hypothetical dataset has the treated (`Y_Z_1`) and untreated (`Y_Z_0`) potential outcomes for 12 classrooms in 4 schools (high sampling variability)
+#' Hypothetical potential outcomes for 12 classrooms in 4 schools (high sampling variability). Columns: `school`, `classroom`, `Y_Z_0`, `Y_Z_1`, `Y_cluster_mean_Z_0`, `Y_cluster_mean_Z_1`.
 #'
 #' @format A data.frame
 "table_3_6"
 
 #' Table 3.7 from FEDAI
 #'
-#' This hypothetical dataset has the treated (`Y_Z_1`) and untreated (`Y_Z_0`) potential outcomes for 12 classrooms in 4 schools (low sampling variability)
+#' Hypothetical potential outcomes for 12 classrooms in 4 schools (low sampling variability). Columns: `school`, `classroom`, `Y_Z_0`, `Y_Z_1`, `Y_cluster_mean_Z_0`, `Y_cluster_mean_Z_1`.
 #'
 #' @format A data.frame
 "table_3_7"
 
 #' Table 4.1 from FEDAI
 #'
-#' Schedule of potential outcomes, pretest scores, and group assignments for simulated teacher incentives experiment
+#' Schedule of potential outcomes and pretest scores for a simulated teacher incentives experiment. Columns: `observation`, `X_pretest` (pretest score, strong covariate), `X_pretest_weak` (pretest score, weak covariate), `Z` (realized treatment assignment), `Y_Z_0`, `Y_Z_1`.
 #'
 #' @format A data.frame
 "table_4_1"
 
 #' Table 4.2 from FEDAI
 #'
-#' Block random assignment of teacher incentives experiment
+#' Block random assignment of teacher incentives experiment. Columns: `observation`, `block`, `X_pretest`, `X_pretest_weak`, `Z` (realized treatment assignment), `prob` (assignment probability), `wt` (inverse-probability weight), `Y_Z_0`, `Y_Z_1`.
 #'
 #' @format A data.frame
 "table_4_2"
@@ -162,6 +160,55 @@
 #'
 #' @format A data.frame
 "table_10_1"
+
+#' Table 3.4 from FEDAI
+#'
+#' Hypothetical schedule of potential outcomes for 14 villages under noncompliance. Columns: `Village`, `Block`, `D` (dose received), `Y` (observed outcome).
+#'
+#' @format A data.frame
+"table_3_4"
+
+#' Table 3.5 from FEDAI
+#'
+#' Hypothetical schedule of potential outcomes for 14 villages under noncompliance (no Village ID column). Columns: `Block`, `D` (dose received), `Y` (observed outcome).
+#'
+#' @format A data.frame
+"table_3_5"
+
+#' Table 7.7 from FEDAI
+#'
+#' Hypothetical paired potential outcomes with attrition for four subjects. Columns: `observation`, `Pair`, `R_Z_0` (response indicator under control), `R_Z_1` (response indicator under treatment), `Y_Z_0`, `Y_Z_1`, `Y_Z_0_R_Z_0` (observed outcome if assigned control), `Y_Z_1_R_Z_1` (observed outcome if assigned treatment, "Missing" if attrited).
+#'
+#' @format A data.frame
+"table_7_7"
+
+#' Table 9.1 from FEDAI
+#'
+#' Tidy aggregate reply rates from Rosen (2010), one row per treatment cell. Columns: `Z_author` ("colin"/"jose"), `Z_good_grammar` (TRUE/FALSE), `Y_reply_pct` (percent of legislators who replied), `N` (observations per cell).
+#'
+#' @format A data.frame
+"table_9_1"
+
+#' Table 9.2 from FEDAI
+#'
+#' Tidy aggregate reply rates from Rosen (2010) stratified by legislator ethnicity. Columns: `X_legislator_hispanic` (TRUE/FALSE), `Z_author`, `Z_good_grammar`, `Y_reply_pct`, `N`.
+#'
+#' @format A data.frame
+"table_9_2"
+
+#' Table 12.2 from FEDAI
+#'
+#' Slemrod, Blumenthal, and Christian (2001) tax compliance strata. Six strata defined by income level (low/medium/high) and self-reported opportunity to underreport (low/high). Columns: income, opportunity, N_pop (stratum population size), effect (true ATE within stratum in percentage points of reported income).
+#'
+#' @format A data.frame
+"table_12_2"
+
+#' Table 12.5 from FEDAI
+#'
+#' Hypothetical potential outcomes for the Chong, De La O, Karlan, and Wantchekon (2011) municipal audit information experiment. Columns: type (honest or corrupt municipality), Y_Z_0 (turnout under control), Y_Z_1 (turnout under treatment).
+#'
+#' @format A data.frame
+"table_12_5"
 
 
 

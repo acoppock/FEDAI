@@ -16,7 +16,7 @@ Population standard deviation
 }
 \examples{
 x <- c(1, 2, 3, 4)
-sd_var(x) # divides by n
+pop_sd(x) # divides by n
 
 # For comparision
 sd(x) # divides by n - 1

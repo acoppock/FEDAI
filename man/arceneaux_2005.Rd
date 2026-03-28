@@ -11,7 +11,7 @@ A data.frame
 arceneaux_2005
 }
 \description{
-Arceneaux, K. (2005). Using Cluster Randomized Field Experiments to Study Voting Behavior. The ANNALS of the American Academy of Political and Social Science, 601(1), 169-179
-These data are from a precinct-level randomized field experiment conducted in Kansas City, Missouri. The columns in this subset of the data include the precinct, whether the subject voted in the 2003 election (the outcome variable), whether contact was successful, and the assigned treatment status)
+Arceneaux, K. (2005). Using Cluster Randomized Field Experiments to Study Voting Behavior. The ANNALS of the American Academy of Political and Social Science, 601(1), 169-179.
+Precinct-level cluster-randomized field experiment in Kansas City, Missouri. Columns: \code{precinct}, \code{Z} (treatment assignment), \code{D_contact} (whether contact with the household was successful), \code{Y_voted_2003} (outcome: voted in 2003 election).
 }
 \keyword{datasets}

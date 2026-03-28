@@ -5,10 +5,10 @@ test_that("lm_bootstrap runs and returns expected structure", {
   boot_out <- lm_bootstrap(mpg ~ wt + hp, data = mtcars, times = 50)
 
   expect_s3_class(boot_out, "lm_bootstrap")
-  expect_true(all(c("term", "estimate") %in% names(boot_out)))
-  expect_true(nrow(boot_out) > 0)
-  expect_true(any(boot_out$term == "wt"))
-  expect_true(any(boot_out$term == "hp"))
+  expect_true(all(c("term", "estimate") %in% names(boot_out$boot_results)))
+  expect_true(nrow(boot_out$boot_results) > 0)
+  expect_true(any(boot_out$boot_results$term == "wt"))
+  expect_true(any(boot_out$boot_results$term == "hp"))
 })
 
 
@@ -19,7 +19,7 @@ test_that("tidy.lm_bootstrap returns summary with correct columns", {
 
   expect_s3_class(summary_df, "data.frame")
   expect_true(all(c("term", "estimate", "std.error", "conf.low", "conf.high") %in% names(summary_df)))
-  expect_equal(nrow(summary_df), length(unique(boot_out$term)))
+  expect_equal(nrow(summary_df), length(unique(boot_out$boot_results$term)))
 
   # Check alpha works
   ci_width <- summary_df$conf.high - summary_df$conf.low

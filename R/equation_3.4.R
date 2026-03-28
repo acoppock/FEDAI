@@ -9,9 +9,9 @@
 #' @export
 #'
 #' @examples
-#' var_Y0 <- pop_var(table_2.1$Y_Z_0)
-#' var_Y1 <- pop_var(table_2.1$Y_Z_1)
-#' cov_Y0_Y1 <- pop_cov(table_2.1$Y_Z_0, table_2.1$Y_Z_1)
+#' var_Y0 <- pop_var(table_2_1$Y_Z_0)
+#' var_Y1 <- pop_var(table_2_1$Y_Z_1)
+#' cov_Y0_Y1 <- pop_cov(table_2_1$Y_Z_0, table_2_1$Y_Z_1)
 #'
 #' equation_3.4(var_Y0 = var_Y0,
 #'              var_Y1 = var_Y1,

@@ -24,6 +24,6 @@ regression coefficients using \code{estimatr::lm_robust} with \code{se_type = "n
 }
 \examples{
 boot_out <- lm_bootstrap(mpg ~ wt + hp, data = mtcars, times = 100)
-tidy(boot_out, alpha = 0.05)
+broom::tidy(boot_out, alpha = 0.05)
 
 }

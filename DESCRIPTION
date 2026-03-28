@@ -2,8 +2,9 @@ Package: FEDAI
 Type: Package
 Title: Tables and Datasets used in Field Experiments: Design, Analysis, and Interpretation
 Version: 0.1.0
-Author: person("Alexander", "Coppock", email = "acoppock@gmail.com", role = c("aut"), comment = c(ORCID = "0000-0002-5733-2386"))
-Description: FEDAI provides the tables and datasets used
+Authors@R: person("Alexander", "Coppock", email = "acoppock@gmail.com", role = c("aut", "cre"), comment = c(ORCID = "0000-0002-5733-2386"))
+Description: Provides the tables, datasets, and helper functions used in
+    Field Experiments: Design, Analysis, and Interpretation by Green and Gerber.
 License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true
@@ -16,7 +17,11 @@ Imports:
     tidyr,
     broom,
     rlang,
-    estimatr
+    estimatr,
+    tibble,
+    DeclareDesign,
+    randomizr
 Suggests:
-    testthat (>= 3.0.0)
+    testthat (>= 3.0.0),
+    DescTools
 Config/testthat/edition: 3
