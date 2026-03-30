@@ -213,3 +213,75 @@
 
 
 
+
+#' obrien_patsiorkovski_1999 from FEDAI
+#'
+#' O'Brien, D. J. and Patsiorkovski, V. V. (1999). Exercise dataset for FEDAI Chapter 4 (Exercise 4.6). Rural Russia survey data on resource group membership and outcome indices across three years.
+#' Columns: `sexresp6` (respondent sex), `ageresp6` (respondent age), `group6` (treatment group), `memberc6` (group membership count), `index95`, `index96`, `index97` (outcome indices across years), `randsort` (randomization sort variable).
+#'
+#' @format A data.frame
+"obrien_patsiorkovski_1999"
+
+#' guan_green_2006 from FEDAI
+#'
+#' Guan, M. and Green, D. P. (2006). Exercise dataset for FEDAI Chapter 5 (Exercise 5.10). Dorm-based canvassing experiment on voter turnout.
+#' Columns: `turnout` (1 = voted), `contact` (1 = contacted), `dormid` (dormitory identifier), `treat2` (treatment assignment indicator).
+#'
+#' @format A data.frame
+"guan_green_2006"
+
+#' hyde_2010 from FEDAI
+#'
+#' Hyde, S. D. (2010). Exercise dataset for FEDAI Chapter 6 (Exercise 6.10). International election observation experiment examining invalid ballots.
+#' Columns: `observed` (1 = polling station was observed), `invalidballots` (count of invalid ballots), `Sample` (sample group indicator).
+#'
+#' @format A data.frame
+"hyde_2010"
+
+#' rind_bordia_1996 from FEDAI
+#'
+#' Rind, B. and Bordia, P. (1996). Exercise dataset for FEDAI Chapter 9 (Exercise 9.6). Experiment on the effect of a server drawing a smiley face on restaurant tips.
+#' Columns: `female` (1 = female server), `happyface` (1 = smiley face drawn on check), `tip` (tip amount in cents), `xhappy` (interaction term), `tipround` (rounded tip).
+#'
+#' @format A data.frame
+"rind_bordia_1996"
+
+#' fieldhouse_etal_2010 from FEDAI
+#'
+#' Fieldhouse, E. et al. (2010). Exercise dataset for FEDAI Chapter 9 (Exercise 9.9). Multi-level canvassing experiment on voter turnout.
+#' Columns: `m` (mobilization treatment), `p` (party contact), `c` (canvassing treatment), `y` (turnout outcome), `p_m` (party-mobilization interaction), `c_m` (canvassing-mobilization interaction).
+#'
+#' @format A data.frame
+"fieldhouse_etal_2010"
+
+#' bhavnani_2009 from FEDAI
+#'
+#' Bhavnani, R. R. (2009). Exercise dataset for FEDAI Chapter 10 (Exercise 10.4). Study of gender quotas and voter turnout in India.
+#' Columns: `controltreat` (control/treatment indicator), `genderofwinner` (gender of winning candidate), `turnout` (voter turnout), `turnout97` (1997 baseline turnout).
+#'
+#' @format A data.frame
+"bhavnani_2009"
+
+#' dupas_2010 from FEDAI
+#'
+#' Dupas, P. (2010). Exercise dataset for FEDAI Chapter 11 (Exercises 11.8, 11.9). Field experiment on bed net purchase and price subsidies in Kenya.
+#' Columns: `cfw_id` (community health worker identifier), `price` (price offered for bed net), `purchasednet` (whether net was purchased).
+#'
+#' @format A data.frame
+"dupas_2010"
+
+#' howell_peterson_2002 from FEDAI
+#'
+#' Howell, W. G. and Peterson, P. E. (2002). Exercise dataset for FEDAI Chapter 12 (Exercise 12.11). School voucher experiment examining math achievement.
+#' Columns: `treat` (1 = voucher offered), `missing_y1math` (1 = missing year-1 math score), `y0_1math_change` (change in math score from baseline), `subset_desc` (subset description indicator).
+#'
+#' @format A data.frame
+"howell_peterson_2002"
+
+#' titiunik_2010 from FEDAI
+#'
+#' Titiunik, R. (2010). Exercise dataset for FEDAI Chapter 13. Regression discontinuity dataset on term lengths and legislative productivity.
+#' Columns: `year` (legislative year), `party` (party affiliation), `dshort_term` (short-term indicator), `votesh_incumb` (incumbent vote share), `usrepvotesh_dem` (US representative Democratic vote share), `bills_intro` (bills introduced).
+#'
+#' @format A data.frame
+"titiunik_2010"
