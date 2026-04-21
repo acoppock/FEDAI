@@ -20,7 +20,8 @@ Imports:
     estimatr,
     tibble,
     DeclareDesign,
-    randomizr
+    randomizr,
+    glmnet
 Suggests:
     testthat (>= 3.0.0),
     DescTools
