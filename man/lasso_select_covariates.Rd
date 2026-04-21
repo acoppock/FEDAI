@@ -9,9 +9,9 @@ lasso_select_covariates(formula, covariates, data, seed = 999)
 \arguments{
 \item{formula}{Two-sided formula \code{Y ~ D}.}
 
-\item{covariates}{One-sided formula or bare expression of candidate
-covariates (e.g. \code{~ X1 + X2} or \code{X1 + X2}), matching the \code{covariates}
-argument of \code{\link[estimatr:lm_lin]{estimatr::lm_lin()}}.}
+\item{covariates}{Candidate covariates: a one-sided formula (\code{~ X1 + X2}),
+a bare expression (\code{X1 + X2}), a character vector of column names, or a
+variable holding any of the above.}
 
 \item{data}{A data frame.}
 
@@ -28,9 +28,7 @@ outcome on covariates separately in each treatment arm so that covariates
 useful for either main effects or treatment interactions are captured.
 Double-selection: also regresses each arm indicator on the covariates so
 that confounders predictive of assignment are included. Regularisation uses
-the one-SE rule (\code{lambda.1se}) via \code{\link[glmnet:cv.glmnet]{glmnet::cv.glmnet()}}, which is more
-conservative than \code{lambda.min} and avoids over-selection (important because
-\code{lm_lin} costs one parameter \emph{per arm} for each selected covariate).
+the one-SE rule (\code{lambda.1se}) via \code{\link[glmnet:cv.glmnet]{glmnet::cv.glmnet()}}.
 }
 \references{
 Belloni, A., Chernozhukov, V., & Hansen, C. (2014). Inference on

@@ -22,8 +22,9 @@ lm_double_lasso(
 \arguments{
 \item{formula}{Two-sided formula \code{Y ~ D}.}
 
-\item{covariates}{Candidate covariates: a one-sided formula (\code{~ X1 + X2}) or
-a bare expression (\code{X1 + X2}).}
+\item{covariates}{Candidate covariates: a one-sided formula (\code{~ X1 + X2}),
+a bare expression (\code{X1 + X2}), a character vector of column names, or a
+variable holding any of the above.}
 
 \item{data}{A data frame.}
 

@@ -1,47 +1,26 @@
-#' Post-double-selection LASSO covariate selector (Lin-aware)
-#'
-#' Selects covariates for use with [estimatr::lm_lin()] via double-selection
-#' LASSO (Belloni, Chernozhukov & Hansen 2014). Lin-aware: runs LASSO of the
-#' outcome on covariates separately in each treatment arm so that covariates
-#' useful for either main effects or treatment interactions are captured.
-#' Double-selection: also regresses each arm indicator on the covariates so
-#' that confounders predictive of assignment are included. Regularisation uses
-#' the one-SE rule (`lambda.1se`) via [glmnet::cv.glmnet()], which is more
-#' conservative than `lambda.min` and avoids over-selection (important because
-#' `lm_lin` costs one parameter *per arm* for each selected covariate).
-#'
-#' @param formula Two-sided formula `Y ~ D`.
-#' @param covariates One-sided formula or bare expression of candidate
-#'   covariates (e.g. `~ X1 + X2` or `X1 + X2`), matching the `covariates`
-#'   argument of [estimatr::lm_lin()].
-#' @param data A data frame.
-#' @param seed Integer seed for reproducibility (default 999).
-#'
-#' @return A one-sided formula of selected column names, or `~1` when no
-#'   covariates are selected.
-#'
-#' @references Belloni, A., Chernozhukov, V., & Hansen, C. (2014). Inference on
-#'   treatment effects after selection among high-dimensional controls.
-#'   *Review of Economic Studies*, 81(2), 608--650.
-#'
-#' @importFrom glmnet cv.glmnet coef.cv.glmnet
-#' @importFrom stats reformulate model.matrix complete.cases var
-#' @export
-lasso_select_covariates <- function(formula, covariates, data, seed = 999) {
-  cov_expr <- substitute(covariates)
-  covariate_cols <- if (inherits(cov_expr, "formula")) {
-    all.vars(cov_expr)
-  } else {
-    all.vars(as.formula(paste("~", deparse1(cov_expr))))
+# Internal: resolve the covariates argument to a character vector of column names.
+# Handles: formula literal (~ x1 + x2), bare expression (x1 + x2),
+# a symbol holding a formula or character vector, and a character vector directly.
+.parse_covariates <- function(cov_expr, env = parent.frame()) {
+  if (inherits(cov_expr, "formula"))
+    return(all.vars(cov_expr))
+  if (is.symbol(cov_expr)) {
+    cov_val <- eval(cov_expr, env)
+    if (is.character(cov_val))   return(cov_val)
+    if (inherits(cov_val, "formula")) return(all.vars(cov_val))
   }
+  all.vars(as.formula(paste("~", deparse1(cov_expr))))
+}
 
+
+# Internal: core LASSO selection given already-parsed column names.
+.lasso_select_core <- function(formula, covariate_cols, data, seed = 999) {
   outcome   <- as.character(formula[[2]])
   treatment <- as.character(formula[[3]])
 
   df <- data[complete.cases(data[, c(outcome, treatment, covariate_cols)]), ]
-
-  y <- df[[outcome]]
-  z <- df[[treatment]]
+  y  <- df[[outcome]]
+  z  <- df[[treatment]]
 
   X <- model.matrix(reformulate(covariate_cols), data = df)[, -1, drop = FALSE]
   X <- scale(X)
@@ -91,6 +70,39 @@ lasso_select_covariates <- function(formula, covariates, data, seed = 999) {
 }
 
 
+#' Post-double-selection LASSO covariate selector (Lin-aware)
+#'
+#' Selects covariates for use with [estimatr::lm_lin()] via double-selection
+#' LASSO (Belloni, Chernozhukov & Hansen 2014). Lin-aware: runs LASSO of the
+#' outcome on covariates separately in each treatment arm so that covariates
+#' useful for either main effects or treatment interactions are captured.
+#' Double-selection: also regresses each arm indicator on the covariates so
+#' that confounders predictive of assignment are included. Regularisation uses
+#' the one-SE rule (`lambda.1se`) via [glmnet::cv.glmnet()].
+#'
+#' @param formula Two-sided formula `Y ~ D`.
+#' @param covariates Candidate covariates: a one-sided formula (`~ X1 + X2`),
+#'   a bare expression (`X1 + X2`), a character vector of column names, or a
+#'   variable holding any of the above.
+#' @param data A data frame.
+#' @param seed Integer seed for reproducibility (default 999).
+#'
+#' @return A one-sided formula of selected column names, or `~1` when no
+#'   covariates are selected.
+#'
+#' @references Belloni, A., Chernozhukov, V., & Hansen, C. (2014). Inference on
+#'   treatment effects after selection among high-dimensional controls.
+#'   *Review of Economic Studies*, 81(2), 608--650.
+#'
+#' @importFrom glmnet cv.glmnet
+#' @importFrom stats reformulate model.matrix complete.cases var
+#' @export
+lasso_select_covariates <- function(formula, covariates, data, seed = 999) {
+  covariate_cols <- .parse_covariates(substitute(covariates), parent.frame())
+  .lasso_select_core(formula, covariate_cols, data, seed)
+}
+
+
 #' Lin estimator with automatic LASSO covariate selection
 #'
 #' Wraps [estimatr::lm_lin()] with automatic covariate selection via
@@ -104,8 +116,9 @@ lasso_select_covariates <- function(formula, covariates, data, seed = 999) {
 #' inside [DeclareDesign::declare_estimator()].
 #'
 #' @param formula Two-sided formula `Y ~ D`.
-#' @param covariates Candidate covariates: a one-sided formula (`~ X1 + X2`) or
-#'   a bare expression (`X1 + X2`).
+#' @param covariates Candidate covariates: a one-sided formula (`~ X1 + X2`),
+#'   a bare expression (`X1 + X2`), a character vector of column names, or a
+#'   variable holding any of the above.
 #' @param data A data frame.
 #' @param weights Optional weights vector.
 #' @param subset Optional subset expression.
@@ -154,21 +167,12 @@ lm_double_lasso <- function(
     try_cholesky = FALSE,
     lasso_args   = list()
 ) {
-  cov_expr <- substitute(covariates)
+  covariate_cols <- .parse_covariates(substitute(covariates), parent.frame())
 
   selected <- do.call(
-    lasso_select_covariates,
-    c(
-      list(
-        formula    = formula,
-        covariates = eval(
-          if (inherits(cov_expr, "formula")) cov_expr
-          else as.formula(paste("~", deparse1(cov_expr)))
-        ),
-        data       = data
-      ),
-      lasso_args
-    )
+    .lasso_select_core,
+    c(list(formula = formula, covariate_cols = covariate_cols, data = data),
+      lasso_args)
   )
 
   if (length(all.vars(selected)) == 0) {
