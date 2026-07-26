@@ -15,7 +15,7 @@ make_studies(N, N_studies, N_literatures)
 to generate.}
 }
 \value{
-A tibble of simulation results from \code{\link[DeclareDesign:simulate_design]{DeclareDesign::simulate_designs()}},
+A tibble of simulation results from \code{\link[DeclareDesign:simulate_designs]{DeclareDesign::simulate_designs()}},
 with an added \code{study} column giving each study's position in its literature's
 random ordering.
 }
