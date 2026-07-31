@@ -10,13 +10,7 @@ Encoding: UTF-8
 LazyData: true
 Roxygen: list(markdown = TRUE)
 Imports:
-    rsample,
     dplyr,
-    purrr,
-    tidyr,
-    broom,
-    rlang,
-    estimatr,
     tibble,
     DeclareDesign,
     randomizr
