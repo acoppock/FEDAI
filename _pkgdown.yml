@@ -1,0 +1,111 @@
+url: https://alexandercoppock.com/FEDAI/
+
+template:
+  bootstrap: 5
+  theme: gruvbox-light
+  includes:
+    in_header: |
+      <link rel="preconnect" href="https://fonts.googleapis.com">
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+      <link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:ital,wght@0,400;0,600;1,400&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&family=IBM+Plex+Mono:wght@400&display=swap" rel="stylesheet">
+  bslib:
+    primary: '#a72f5b'
+    body-bg: '#FBFAF7'
+    body-color: '#3C444C'
+    link-color: '#a72f5b'
+    link-hover-color: '#7d2244'
+    border-color: '#E4E0D8'
+    muted-color: '#6B7078'
+    rule-color: '#E4E0D8'
+    rule-strong: '#D6D1C6'
+    accent-teal: '#004c6d'
+    code-bg: '#F3EFE7'
+    border-radius: '2px'
+    btn-border-radius: '2px'
+    font-size-base: '1.0625rem'
+    line-height-base: '1.6'
+    font-family-sans-serif: '"Source Sans 3", -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif'
+    headings-font-family: '"Source Serif 4", Georgia, "Times New Roman", serif'
+    font-family-monospace: '"IBM Plex Mono", ui-monospace, SFMono-Regular, Menlo, monospace'
+    headings-font-weight: '600'
+    code-color: '#004c6d'
+reference:
+- title: Population moments
+  desc: >
+    Divide by N rather than N - 1. A schedule of potential outcomes is a
+    population, not a sample from one.
+  contents:
+  - pop_var
+  - pop_cov
+  - pop_sd
+
+- title: Standard errors and tests
+  desc: >
+    The true standard error, which needs the potential outcomes no experiment
+    reveals, and the indirect test for effect heterogeneity.
+  contents:
+  - equation_3.4
+  - difference_in_variances
+
+- title: Simulations
+  desc: >
+    Bayesian updating from an experimental result, and a simulated research
+    literature in which studies arrive in a random order.
+  contents:
+  - posterior_mean_fn
+  - simulate_posteriors
+  - make_studies
+
+- title: Book tables
+  desc: >
+    The hypothetical schedules of potential outcomes the chapters reason over.
+  contents:
+  - table_2_1
+  - table_2_2
+  - table_3_3
+  - table_3_4
+  - table_3_5
+  - table_3_6
+  - table_3_7
+  - box_3_7
+  - table_4_1
+  - table_4_2
+  - table_5_1
+  - table_6_1
+  - table_6_4
+  - table_7_1
+  - table_7_2
+  - table_7_7
+  - table_8_1
+  - table_8_2
+  - table_8_4
+  - table_8_4_distmat
+  - table_8_7
+  - table_9_1
+  - table_9_2
+  - table_10_1
+  - table_12_2
+  - table_12_5
+
+- title: Study datasets
+  desc: >
+    The experiments the chapters analyze.
+  contents:
+  - arceneaux_2005
+  - clingingsmith_khwaja_kremer_2009
+  - rosen_2010
+
+- title: Exercise datasets
+  desc: >
+    The datasets the exercises ask the reader to download, shipped with the
+    column names the exercises use.
+  contents:
+  - obrien_patsiorkovski_1999
+  - guan_green_2006
+  - hyde_2010
+  - rind_bordia_1996
+  - fieldhouse_etal_2010
+  - bhavnani_2009
+  - dupas_2010
+  - howell_peterson_2002
+  - titiunik_2010
