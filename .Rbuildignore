@@ -1,4 +1,10 @@
 ^.*\.Rproj$
 ^\.Rproj\.user$
-^NOTES_double_lasso\.md$
+^NOTES_moved_to_estimatrTools\.md$
 ^LICENSE\.md$
+^data-raw$
+^notes$
+^\.github$
+^_pkgdown\.yml$
+^docs$
+^pkgdown$

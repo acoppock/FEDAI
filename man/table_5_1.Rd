@@ -5,12 +5,26 @@
 \alias{table_5_1}
 \title{Table 5.1 from FEDAI}
 \format{
-A data.frame
+A data frame with 9 rows and 6 columns:
+\describe{
+\item{observation}{Subject number, 1 to 9}
+\item{type}{Compliance type, Complier or Never-Taker}
+\item{D_Z_0}{Treatment received if assigned to control, 0 for everyone}
+\item{D_Z_1}{Treatment received if assigned to treatment}
+\item{Y_D_0}{Outcome if untreated}
+\item{Y_D_1}{Outcome if treated}
+}
+}
+\source{
+ISPS Data Archive study D081 \doi{10.60600/YU/VUH8KD}, file 42330
+(\code{GerberGreenBook_Chapter5_Table_5_1}). Built by \code{data-raw/book_tables.R}.
 }
 \usage{
 table_5_1
 }
 \description{
-Hypothetical schedule of potential outcomes assuming one-sided noncompliance
+Hypothetical schedule of potential outcomes assuming one-sided
+noncompliance: no one assigned to control can take the treatment, so there
+are no always-takers and no defiers.
 }
 \keyword{datasets}

@@ -5,12 +5,18 @@
 \alias{table_8_4_distmat}
 \title{Distance matrix for Table 8.4 from FEDAI}
 \format{
-A data.frame
+A 30 by 30 numeric matrix. Row and column \code{i} correspond to
+\code{table_8_4$hotspot == i}, and the diagonal is zero.
+}
+\source{
+Computed from the hotspot coordinates described under \code{table_8_4}.
+Built by \code{data-raw/book_tables.R}.
 }
 \usage{
 table_8_4_distmat
 }
 \description{
-Distance matrix for the 30 hypothetical policing hotspots locations described in Table 8.4
+Euclidean distances between the 30 policing hotspots of \code{table_8_4}, which
+determine which hotspots are exposed to a treated neighbor.
 }
 \keyword{datasets}

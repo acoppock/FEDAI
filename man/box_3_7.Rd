@@ -5,12 +5,24 @@
 \alias{box_3_7}
 \title{Box 3.7 from FEDAI}
 \format{
-A data.frame
+A data frame with 20 rows and 2 columns:
+\describe{
+\item{Z}{Realized treatment assignment}
+\item{Y}{Revealed outcome, a donation amount. The distribution is skewed:
+most donations are small and one is 500, which is what pulls the t-test
+and randomization inference apart}
+}
+}
+\source{
+ISPS Data Archive study D081 \doi{10.60600/YU/VUH8KD}, file 42300
+(\code{GerberGreenBook_Chapter3_Donations}). Built by \code{data-raw/book_tables.R}.
 }
 \usage{
 box_3_7
 }
 \description{
-This hypothetical dataset has two columns, a realized treatment (\code{Z}) and a revealed outcome (\code{Y}). The purpose of the dataset is to illustrate how traditional t-tests and randomization inference can yield different answers
+This hypothetical dataset has two columns, a realized treatment (\code{Z}) and a
+revealed outcome (\code{Y}). The purpose of the dataset is to illustrate how
+traditional t-tests and randomization inference can yield different answers.
 }
 \keyword{datasets}

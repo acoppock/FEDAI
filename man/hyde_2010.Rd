@@ -3,15 +3,27 @@
 \docType{data}
 \name{hyde_2010}
 \alias{hyde_2010}
-\title{hyde_2010 from FEDAI}
+\title{Hyde (2010) election observation experiment}
 \format{
-A data.frame
+A data frame with 1,971 rows and 3 columns:
+\describe{
+\item{observed}{Polling station was visited by an observer}
+\item{invalidballots}{Count of invalid ballots at the polling station}
+\item{Sample}{Sample indicator, 0 or 1}
+}
+}
+\source{
+Hyde, S. D. (2010). Experimenting in Democracy Promotion:
+International Observers and the 2004 Presidential Elections in Indonesia.
+Perspectives on Politics, 8(2), 511-527. ISPS Data Archive study D081
+\doi{10.60600/YU/VUH8KD}, file 42372 (\code{Hyde_POP_2012}). Built by
+\code{data-raw/exercise_datasets.R}.
 }
 \usage{
 hyde_2010
 }
 \description{
-Hyde, S. D. (2010). Exercise dataset for FEDAI Chapter 6 (Exercise 6.10). International election observation experiment examining invalid ballots.
-Columns: \code{observed} (1 = polling station was observed), \code{invalidballots} (count of invalid ballots), \code{Sample} (sample group indicator).
+Exercise dataset for Chapter 6, Exercise 6.10. Randomized assignment of
+international election observers to polling stations in Indonesia.
 }
 \keyword{datasets}

@@ -5,12 +5,28 @@
 \alias{table_2_2}
 \title{Table 2.2 from FEDAI}
 \format{
-A data.frame
+A data frame with 7 rows and 6 columns:
+\describe{
+\item{Village}{Village number, 1 to 7}
+\item{Z}{Realized treatment assignment, 1 for the two treated villages}
+\item{Y_Z_0}{Untreated potential outcome, \code{NA} where treatment was assigned}
+\item{Y_Z_1}{Treated potential outcome, \code{NA} where control was assigned}
+\item{Y}{Revealed outcome}
+\item{tau_i}{Village-level treatment effect, \code{NA} throughout: it is never
+observable}
+}
+}
+\source{
+Derived from Table 2.1 (file 42291) by applying the assignment
+printed in the book. Built by \code{data-raw/book_tables.R}.
 }
 \usage{
 table_2_2
 }
 \description{
-This hypothetical dataset shows a realized assignment (\code{Z}) and the corresponding revealed outcome (\code{Y}). Unobserved treated (\code{Y_Z_1}) and untreated (\code{Y_Z_0}) potential outcomes are marked as \code{NA} as is the village-level treatment effect \code{tau_i}.
+This hypothetical dataset shows a realized assignment (\code{Z}) and the
+corresponding revealed outcome (\code{Y}). Unobserved treated (\code{Y_Z_1}) and
+untreated (\code{Y_Z_0}) potential outcomes are marked as \code{NA}, as is the
+village-level treatment effect \code{tau_i}.
 }
 \keyword{datasets}

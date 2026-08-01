@@ -5,12 +5,23 @@
 \alias{table_3_3}
 \title{Table 3.3 from FEDAI}
 \format{
-A data.frame
+A data frame with 14 rows and 4 columns:
+\describe{
+\item{Village}{Village number, 1 to 14}
+\item{Block}{Block, 1 or 2}
+\item{Y_Z_0}{Untreated potential outcome}
+\item{Y_Z_1}{Treated potential outcome}
+}
+}
+\source{
+ISPS Data Archive study D081 \doi{10.60600/YU/VUH8KD}, file 42294
+(\code{GerberGreenBook_Chapter3_Table_3_3}). Built by \code{data-raw/book_tables.R}.
 }
 \usage{
 table_3_3
 }
 \description{
-This hypothetical dataset has the treated (\code{Y_Z_1}) and untreated (\code{Y_Z_0}) potential outcomes for 14 villages in two blocks.
+This hypothetical dataset has the treated (\code{Y_Z_1}) and untreated (\code{Y_Z_0})
+potential outcomes for 14 villages in two blocks.
 }
 \keyword{datasets}

@@ -5,12 +5,31 @@
 \alias{table_7_1}
 \title{Table 7.1 from FEDAI}
 \format{
-A data.frame
+A data frame with 8 rows and 8 columns:
+\describe{
+\item{observation}{Subject number, 1 to 8}
+\item{type}{Reporting type implied by \code{R_Z_0} and \code{R_Z_1}: Always-reporter,
+If-treated-reporter, If-untreated-reporter or Never-reporter}
+\item{R_Z_0}{Reports if assigned to control}
+\item{R_Z_1}{Reports if assigned to treatment}
+\item{Y_Z_0}{Untreated potential outcome, latent}
+\item{Y_Z_1}{Treated potential outcome, latent}
+\item{Y_Z_0_R_Z_0}{Outcome observed under control, \code{NA} when the subject
+does not report}
+\item{Y_Z_1_R_Z_1}{Outcome observed under treatment, \code{NA} when the subject
+does not report}
+}
+}
+\source{
+ISPS Data Archive study D081 \doi{10.60600/YU/VUH8KD}, file 42354
+(\code{GerberGreenBook_Chapter7_Table_7_1}). Built by \code{data-raw/book_tables.R}.
 }
 \usage{
 table_7_1
 }
 \description{
-Hypothetical potential outcomes for eight subjects.
+Hypothetical potential outcomes for eight subjects, with a reporting
+potential outcome alongside the outcome itself. Attrition is a potential
+outcome too, so each subject has a type describing when they report.
 }
 \keyword{datasets}

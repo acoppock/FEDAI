@@ -5,12 +5,28 @@
 \alias{table_3_7}
 \title{Table 3.7 from FEDAI}
 \format{
-A data.frame
+A data frame with 12 rows and 6 columns:
+\describe{
+\item{school}{School, A to D}
+\item{classroom}{Classroom within school, e.g. \code{"A-1"}}
+\item{Y_Z_0}{Untreated potential outcome}
+\item{Y_Z_1}{Treated potential outcome}
+\item{Y_cluster_mean_Z_0}{School mean of \code{Y_Z_0}}
+\item{Y_cluster_mean_Z_1}{School mean of \code{Y_Z_1}}
+}
+}
+\source{
+ISPS Data Archive study D081 \doi{10.60600/YU/VUH8KD}, file 42370
+(\code{GerberGreenBook_Chapter3_Table_3_7}). Built by \code{data-raw/book_tables.R}.
 }
 \usage{
 table_3_7
 }
 \description{
-Hypothetical potential outcomes for 12 classrooms in 4 schools (low sampling variability). Columns: \code{school}, \code{classroom}, \code{Y_Z_0}, \code{Y_Z_1}, \code{Y_cluster_mean_Z_0}, \code{Y_cluster_mean_Z_1}.
+Hypothetical potential outcomes for 12 classrooms in 4 schools, in the case
+where cluster means barely vary across schools. The individual outcomes are
+the same ones as in Table 3.6; only their assignment to schools differs,
+which is what makes the pair a demonstration that what matters is how much
+cluster means differ, not how many clusters there are.
 }
 \keyword{datasets}

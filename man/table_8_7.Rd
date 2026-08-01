@@ -5,12 +5,29 @@
 \alias{table_8_7}
 \title{Table 8.7 from FEDAI}
 \format{
-A data.frame
+A data frame with 24 rows and 8 columns:
+\describe{
+\item{market}{Market number, 1 to 8}
+\item{period}{Period, \code{"1"} to \code{"3"}}
+\item{prob_P_0_C_0}{Probability of being untreated in both the previous and
+the current period}
+\item{prob_P_0_C_1}{Probability of being newly treated this period}
+\item{prob_P_1_C_1}{Probability of having been treated in both periods}
+\item{Y_P_0_C_0}{Outcome when untreated in both periods}
+\item{Y_P_0_C_1}{Outcome when newly treated}
+\item{Y_P_1_C_1}{Outcome when treated in both periods, \code{NA} in period 1}
+}
+}
+\source{
+ISPS Data Archive study D081 \doi{10.60600/YU/VUH8KD}, file 42359
+(\code{GerberGreenBook_Chapter8_Table_8_7}). Built by \code{data-raw/book_tables.R}.
 }
 \usage{
 table_8_7
 }
 \description{
-Hypothetical potential outcomes for 8 media markets over three weeks, depending on current and previous period treatment status.
+Hypothetical potential outcomes for eight media markets over three periods,
+depending on current and previous period treatment status. Treatment is
+sticky, so the twice-treated potential outcome does not exist in period 1.
 }
 \keyword{datasets}

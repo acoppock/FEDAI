@@ -5,12 +5,25 @@
 \alias{table_9_2}
 \title{Table 9.2 from FEDAI}
 \format{
-A data.frame
+A data frame with 8 rows and 5 columns:
+\describe{
+\item{X_legislator_hispanic}{Whether the recipient legislator is Hispanic}
+\item{Z_author}{Apparent ethnicity of the letter writer}
+\item{Z_good_grammar}{Whether the letter used good grammar}
+\item{Y_reply_pct}{Percent of legislators who replied}
+\item{N}{Letters sent in this cell}
+}
+}
+\source{
+ISPS Data Archive study D081 \doi{10.60600/YU/VUH8KD}, file 42308
+(\code{GerberGreenBook_Chapter9_Table_9_2}). Built by \code{data-raw/book_tables.R}.
 }
 \usage{
 table_9_2
 }
 \description{
-Tidy aggregate reply rates from Rosen (2010) stratified by legislator ethnicity. Columns: \code{X_legislator_hispanic} (TRUE/FALSE), \code{Z_author}, \code{Z_good_grammar}, \code{Y_reply_pct}, \code{N}.
+Aggregate reply rates from Rosen (2010), stratified by whether the legislator
+is Hispanic. The moderator is a pre-treatment characteristic of the
+legislator, not of the letter.
 }
 \keyword{datasets}

@@ -3,15 +3,32 @@
 \docType{data}
 \name{titiunik_2010}
 \alias{titiunik_2010}
-\title{titiunik_2010 from FEDAI}
+\title{Titiunik (2010) legislative term length experiment}
 \format{
-A data.frame
+A data frame with 124 rows and 6 columns:
+\describe{
+\item{year}{Legislative session. The 1993 sessions are coded 19931 and
+19932, so the column has four distinct values rather than three}
+\item{party}{Senator's party, \code{"Dem."} or \code{"Rep."}}
+\item{dshort_term}{Assigned term length, \code{"2 years"} or \code{"4 years"}}
+\item{votesh_incumb}{Incumbent vote share}
+\item{usrepvotesh_dem}{Democratic vote share for US Representative in the
+district}
+\item{bills_intro}{Bills introduced by the senator}
+}
+}
+\source{
+Titiunik, R. (2010). Drawing Your Senator from a Jar: Term Length and
+Legislative Behavior. Working paper. ISPS Data Archive study D081
+\doi{10.60600/YU/VUH8KD}, file 42333 (\code{Titiunik_WorkingPaper_2010}). Built
+by \code{data-raw/exercise_datasets.R}.
 }
 \usage{
 titiunik_2010
 }
 \description{
-Titiunik, R. (2010). Exercise dataset for FEDAI Chapter 13. Regression discontinuity dataset on term lengths and legislative productivity.
-Columns: \code{year} (legislative year), \code{party} (party affiliation), \code{dshort_term} (short-term indicator), \code{votesh_incumb} (incumbent vote share), \code{usrepvotesh_dem} (US representative Democratic vote share), \code{bills_intro} (bills introduced).
+Exercise dataset for Chapter 13. Texas and Arkansas assign newly elected
+state senators to two-year or four-year terms by lottery, which makes term
+length experimentally manipulated rather than chosen.
 }
 \keyword{datasets}

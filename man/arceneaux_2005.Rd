@@ -3,15 +3,28 @@
 \docType{data}
 \name{arceneaux_2005}
 \alias{arceneaux_2005}
-\title{arceneaux_2005 from FEDAI}
+\title{Arceneaux (2005) precinct canvassing experiment}
 \format{
-A data.frame
+A data frame with 9,712 rows and 4 columns:
+\describe{
+\item{precinct}{Precinct, the unit of random assignment, 1 to 28}
+\item{Z}{Assigned to the canvassing treatment}
+\item{D_contact}{Contact with the household was successful}
+\item{Y_voted_2003}{Voted in the 2003 election}
+}
+}
+\source{
+Arceneaux, K. (2005). Using Cluster Randomized Field Experiments to
+Study Voting Behavior. The ANNALS of the American Academy of Political and
+Social Science, 601(1), 169-179. ISPS Data Archive study D081
+\doi{10.60600/YU/VUH8KD}, file 42260 (\code{Arceneaux_AAAPSSsubset_2005}).
+Built by \code{data-raw/studies.R}.
 }
 \usage{
 arceneaux_2005
 }
 \description{
-Arceneaux, K. (2005). Using Cluster Randomized Field Experiments to Study Voting Behavior. The ANNALS of the American Academy of Political and Social Science, 601(1), 169-179.
-Precinct-level cluster-randomized field experiment in Kansas City, Missouri. Columns: \code{precinct}, \code{Z} (treatment assignment), \code{D_contact} (whether contact with the household was successful), \code{Y_voted_2003} (outcome: voted in 2003 election).
+Precinct-level cluster-randomized field experiment in Kansas City, Missouri,
+used in Chapter 3 as the running example of cluster assignment.
 }
 \keyword{datasets}

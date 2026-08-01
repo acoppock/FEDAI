@@ -5,12 +5,24 @@
 \alias{table_3_4}
 \title{Table 3.4 from FEDAI}
 \format{
-A data.frame
+A data frame with 14 rows and 4 columns:
+\describe{
+\item{Village}{Village number, 1 to 14}
+\item{Block}{Block, 1 or 2}
+\item{D}{Treated potential outcome, \code{"."} where unrevealed}
+\item{Y}{Untreated potential outcome, \code{"."} where unrevealed}
+}
+}
+\source{
+ISPS Data Archive study D081 \doi{10.60600/YU/VUH8KD}, file 42353
+(\code{GerberGreenBook_Chapter3_Table_3_4}). Built by \code{data-raw/book_tables.R}.
 }
 \usage{
 table_3_4
 }
 \description{
-Hypothetical schedule of potential outcomes for 14 villages under noncompliance. Columns: \code{Village}, \code{Block}, \code{D} (dose received), \code{Y} (observed outcome).
+Hypothetical schedule of potential outcomes for 14 villages under
+noncompliance. \code{D} and \code{Y} are character columns because the table prints
+\code{"."} for the potential outcome that assignment did not reveal.
 }
 \keyword{datasets}

@@ -7,3 +7,9 @@
 
 # macOS system file
 .DS_Store
+
+# Downloaded copies of the ISPS archive files, refetched on demand
+data-raw/cache/
+
+# Private dev log, mirrored to claude_control
+notes/

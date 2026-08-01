@@ -5,12 +5,36 @@
 \alias{table_8_4}
 \title{Table 8.4 from FEDAI}
 \format{
-A data.frame
+A data frame with 30 rows and 17 columns:
+\describe{
+\item{hotspot}{Hotspot number, 1 to 30}
+\item{x, y}{Coordinates in the plane}
+\item{hotspots_within_500m}{Number of other hotspots within 500m}
+\item{hotspots_within_750m}{Number of other hotspots within 750m}
+\item{A}{Realized spillover exposure, \code{"0"} or \code{"1"}}
+\item{Z}{Realized direct treatment, \code{"0"} or \code{"1"}}
+\item{exposure}{Two-character exposure condition, \code{A} followed by \code{Z}}
+\item{prob_A_0_Z_0, prob_A_0_Z_1, prob_A_1_Z_0, prob_A_1_Z_1}{Probability of
+each exposure condition under the randomization}
+\item{Y_A_0_Z_0, Y_A_0_Z_1, Y_A_1_Z_0, Y_A_1_Z_1}{Potential outcome in each
+exposure condition}
+\item{Y}{Revealed outcome}
+}
+}
+\source{
+ISPS Data Archive study D081 \doi{10.60600/YU/VUH8KD}, file 42273
+(\code{GerberGreenBook_Chapter8_Table_8_4_8_5}). The coordinates are not stored
+in the archive as data; they are regenerated from the \code{set.seed(1337)} draw
+in the archive's own Chapter 8 figure code (file 42377). Built by
+\code{data-raw/book_tables.R}.
 }
 \usage{
 table_8_4
 }
 \description{
-Hypothetical potential outcomes for 30 policing hotspots locations depending on their treatment status and the treatment status of adjacent hotspots.
+Hypothetical potential outcomes for 30 policing hotspots, depending on their
+own treatment status (\code{Z}) and on whether a nearby hotspot is treated (\code{A}).
+Because exposure to spillover is itself random, each hotspot has a
+probability of landing in each of the four exposure conditions.
 }
 \keyword{datasets}

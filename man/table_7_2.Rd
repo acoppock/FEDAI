@@ -5,12 +5,27 @@
 \alias{table_7_2}
 \title{Table 7.2 from FEDAI}
 \format{
-A data.frame
+A data frame with 8 rows and 8 columns:
+\describe{
+\item{observation}{Subject number, 1 to 8}
+\item{X}{Binary pre-treatment covariate}
+\item{R_Z_0}{Reports if assigned to control}
+\item{R_Z_1}{Reports if assigned to treatment}
+\item{Y_Z_0}{Untreated potential outcome, latent}
+\item{Y_Z_1}{Treated potential outcome, latent}
+\item{Y_Z_0_R_Z_0}{Outcome observed under control, \code{NA} when unreported}
+\item{Y_Z_1_R_Z_1}{Outcome observed under treatment, \code{NA} when unreported}
+}
+}
+\source{
+ISPS Data Archive study D081 \doi{10.60600/YU/VUH8KD}, file 42286
+(\code{GerberGreenBook_Chapter7_Table_7_2}). Built by \code{data-raw/book_tables.R}.
 }
 \usage{
 table_7_2
 }
 \description{
-Complete set of potential outcomes and covariates for eight subjects.
+Complete set of potential outcomes and covariates for eight subjects, adding
+a binary covariate to the reporting schedule of Table 7.1.
 }
 \keyword{datasets}

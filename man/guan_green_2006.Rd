@@ -3,15 +3,29 @@
 \docType{data}
 \name{guan_green_2006}
 \alias{guan_green_2006}
-\title{guan_green_2006 from FEDAI}
+\title{Guan and Green (2006) dormitory canvassing experiment}
 \format{
-A data.frame
+A data frame with 4,024 rows and 4 columns:
+\describe{
+\item{turnout}{Voted, with 2 missing values}
+\item{contact}{Successfully contacted by a canvasser}
+\item{dormid}{Dormitory identifier, the cluster of assignment}
+\item{treat2}{Assigned to the canvassing treatment}
+}
+}
+\source{
+Guan, M. and Green, D. P. (2006). Noncoercive Mobilization in
+State-Controlled Elections: An Experimental Study in Beijing. Comparative
+Political Studies, 39(10), 1175-1193. ISPS Data Archive study D081
+\doi{10.60600/YU/VUH8KD}, file 42342 (\code{Guan_Green_CPS_2006}). Built by
+\code{data-raw/exercise_datasets.R}.
 }
 \usage{
 guan_green_2006
 }
 \description{
-Guan, M. and Green, D. P. (2006). Exercise dataset for FEDAI Chapter 5 (Exercise 5.10). Dorm-based canvassing experiment on voter turnout.
-Columns: \code{turnout} (1 = voted), \code{contact} (1 = contacted), \code{dormid} (dormitory identifier), \code{treat2} (treatment assignment indicator).
+Exercise dataset for Chapter 5, Exercise 5.10. Canvassing experiment on voter
+turnout among Peking University students, randomized within dormitory
+clusters, with one-sided noncompliance.
 }
 \keyword{datasets}

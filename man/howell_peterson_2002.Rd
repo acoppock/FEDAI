@@ -3,15 +3,29 @@
 \docType{data}
 \name{howell_peterson_2002}
 \alias{howell_peterson_2002}
-\title{howell_peterson_2002 from FEDAI}
+\title{Howell and Peterson (2002) school voucher experiment}
 \format{
-A data.frame
+A data frame with 1,851 rows and 4 columns:
+\describe{
+\item{treat}{Offered a voucher by lottery}
+\item{missing_y1math}{Year-one math score is missing}
+\item{y0_1math_change}{Change in math score from baseline, missing for 396
+subjects}
+\item{subset_desc}{Subset indicator, 1 for every row in this extract}
+}
+}
+\source{
+Howell, W. G. and Peterson, P. E. (2002). The Education Gap: Vouchers
+and Urban Schools. Brookings Institution Press. ISPS Data Archive study
+D081 \doi{10.60600/YU/VUH8KD}, file 42361 (\code{Howell_Peterson_BIP_2002}).
+Built by \code{data-raw/exercise_datasets.R}.
 }
 \usage{
 howell_peterson_2002
 }
 \description{
-Howell, W. G. and Peterson, P. E. (2002). Exercise dataset for FEDAI Chapter 12 (Exercise 12.11). School voucher experiment examining math achievement.
-Columns: \code{treat} (1 = voucher offered), \code{missing_y1math} (1 = missing year-1 math score), \code{y0_1math_change} (change in math score from baseline), \code{subset_desc} (subset description indicator).
+Exercise dataset for Chapter 12, Exercise 12.11. Lottery-allocated private
+school vouchers in New York City, used as an exercise on attrition: the
+missingness indicator is the point of the dataset.
 }
 \keyword{datasets}

@@ -3,15 +3,29 @@
 \docType{data}
 \name{fieldhouse_etal_2010}
 \alias{fieldhouse_etal_2010}
-\title{fieldhouse_etal_2010 from FEDAI}
+\title{Fieldhouse et al. (2010) UK mobilization experiment}
 \format{
-A data.frame
+A data frame with 15,300 rows and 6 columns:
+\describe{
+\item{m}{Assigned to the mail treatment}
+\item{p}{Assigned to the phone treatment}
+\item{c}{Assigned to the canvassing treatment}
+\item{y}{Voted}
+\item{p_m}{Interaction of \code{p} and \code{m}}
+\item{c_m}{Interaction of \code{c} and \code{m}}
+}
+}
+\source{
+Fieldhouse, E., Cutts, D., Widdop, P. and John, P. (2010). ISPS Data
+Archive study D081 \doi{10.60600/YU/VUH8KD}, file 42348
+(\code{Fieldhouse_et_al_unpublished_2010_expanded}). Built by
+\code{data-raw/exercise_datasets.R}.
 }
 \usage{
 fieldhouse_etal_2010
 }
 \description{
-Fieldhouse, E. et al. (2010). Exercise dataset for FEDAI Chapter 9 (Exercise 9.9). Multi-level canvassing experiment on voter turnout.
-Columns: \code{m} (mobilization treatment), \code{p} (party contact), \code{c} (canvassing treatment), \code{y} (turnout outcome), \code{p_m} (party-mobilization interaction), \code{c_m} (canvassing-mobilization interaction).
+Exercise dataset for Chapter 9, Exercise 9.9. Factorial voter mobilization
+experiment crossing mail with other forms of contact.
 }
 \keyword{datasets}

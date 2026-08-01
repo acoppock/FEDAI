@@ -5,12 +5,24 @@
 \alias{table_9_1}
 \title{Table 9.1 from FEDAI}
 \format{
-A data.frame
+A data frame with 4 rows and 4 columns:
+\describe{
+\item{Z_author}{Apparent ethnicity of the letter writer, \code{"colin"} or
+\code{"jose"}}
+\item{Z_good_grammar}{Whether the letter used good grammar}
+\item{Y_reply_pct}{Percent of legislators who replied}
+\item{N}{Letters sent in this cell}
+}
+}
+\source{
+ISPS Data Archive study D081 \doi{10.60600/YU/VUH8KD}, file 42290
+(\code{GerberGreenBook_Chapter9_Table_9_1}). Built by \code{data-raw/book_tables.R}.
 }
 \usage{
 table_9_1
 }
 \description{
-Tidy aggregate reply rates from Rosen (2010), one row per treatment cell. Columns: \code{Z_author} ("colin"/"jose"), \code{Z_good_grammar} (TRUE/FALSE), \code{Y_reply_pct} (percent of legislators who replied), \code{N} (observations per cell).
+Aggregate reply rates from Rosen (2010), one row per treatment cell, in tidy
+rather than printed-table form.
 }
 \keyword{datasets}

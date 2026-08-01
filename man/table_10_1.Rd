@@ -5,12 +5,32 @@
 \alias{table_10_1}
 \title{Table 10.1 from FEDAI}
 \format{
-A data.frame
+A data frame with 6 rows and 10 columns:
+\describe{
+\item{population_share}{Share of the population of this subject type, 1/6
+throughout}
+\item{Z}{Realized treatment assignment}
+\item{M_Z_0}{Mediator if untreated}
+\item{M_Z_1}{Mediator if treated}
+\item{M}{Revealed mediator}
+\item{Y_Z_0}{Untreated potential outcome}
+\item{Y_Z_1}{Treated potential outcome}
+\item{Y}{Revealed outcome}
+\item{e1}{Disturbance in the mediator equation}
+\item{e3}{Disturbance in the outcome equation}
+}
+}
+\source{
+ISPS Data Archive study D081 \doi{10.60600/YU/VUH8KD}, file 42270
+(\code{GerberGreenBook_Chapter10_Table_10_1}). Built by
+\code{data-raw/book_tables.R}.
 }
 \usage{
 table_10_1
 }
 \description{
-Hypothetical potential outcomes for six kinds of subjects
+Hypothetical potential outcomes for six kinds of subjects, used to show why
+regressing the outcome on a post-treatment mediator does not recover the
+effect that runs through it.
 }
 \keyword{datasets}

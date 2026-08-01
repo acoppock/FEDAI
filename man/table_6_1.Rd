@@ -5,12 +5,27 @@
 \alias{table_6_1}
 \title{Table 6.1 from FEDAI}
 \format{
-A data.frame
+A data frame with 10 rows and 8 columns:
+\describe{
+\item{observation}{Subject number, 1 to 10}
+\item{type}{Compliance type: Complier, Defier, Always-Taker or Never-Taker}
+\item{D_Z_0}{Treatment received if assigned to control}
+\item{D_Z_1}{Treatment received if assigned to treatment}
+\item{Y_D_0}{Outcome if untreated}
+\item{Y_D_1}{Outcome if treated}
+\item{Y_Z_0}{Outcome if assigned to control}
+\item{Y_Z_1}{Outcome if assigned to treatment}
+}
+}
+\source{
+ISPS Data Archive study D081 \doi{10.60600/YU/VUH8KD}, file 42280
+(\code{GerberGreenBook_Chapter6_Table_6_1}). Built by \code{data-raw/book_tables.R}.
 }
 \usage{
 table_6_1
 }
 \description{
-Hypothetical schedule of potential outcomes assuming two-sided noncompliance
+Hypothetical schedule of potential outcomes assuming two-sided
+noncompliance, so all four compliance types are present, defiers included.
 }
 \keyword{datasets}

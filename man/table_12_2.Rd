@@ -5,12 +5,27 @@
 \alias{table_12_2}
 \title{Table 12.2 from FEDAI}
 \format{
-A data.frame
+A data frame with 6 rows and 4 columns:
+\describe{
+\item{income}{Income level: low, medium or high}
+\item{opportunity}{Opportunity to underreport: low or high}
+\item{N_pop}{Population size of the stratum}
+\item{effect}{Stipulated true ATE within the stratum, in percentage points
+of reported income}
+}
+}
+\source{
+Authored for this edition rather than taken from the archive. The
+stratum sizes come from the Minnesota tax compliance experiment; the
+effects are stipulated. Built by \code{data-raw/book_tables.R}.
 }
 \usage{
 table_12_2
 }
 \description{
-Slemrod, Blumenthal, and Christian (2001) tax compliance strata. Six strata defined by income level (low/medium/high) and self-reported opportunity to underreport (low/high). Columns: income, opportunity, N_pop (stratum population size), effect (true ATE within stratum in percentage points of reported income).
+Strata for an oversampling illustration built on the Slemrod, Blumenthal and
+Christian (2001) tax compliance experiment. Six strata are defined by income
+level and self-reported opportunity to underreport. The smallest stratum has
+the largest effect, which is the case for oversampling it.
 }
 \keyword{datasets}

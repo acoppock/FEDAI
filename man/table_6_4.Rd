@@ -5,12 +5,28 @@
 \alias{table_6_4}
 \title{Table 6.4 from FEDAI}
 \format{
-A data.frame
+A data frame with 32 rows and 8 columns:
+\describe{
+\item{observation}{Subject number, 1 to 32}
+\item{subject_type}{Compliance type: always-takers, compliers, defiers or
+never-takers}
+\item{Z}{Realized treatment assignment}
+\item{wt}{Number of subjects of this type, used as a frequency weight}
+\item{D_Z_0}{Treatment received if assigned to control}
+\item{D_Z_1}{Treatment received if assigned to treatment}
+\item{Y_D_0}{Outcome if untreated}
+\item{Y_D_1}{Outcome if treated}
+}
+}
+\source{
+ISPS Data Archive study D081 \doi{10.60600/YU/VUH8KD}, file 42309
+(\code{GerberGreenBook_Chapter6_Table_6_4}). Built by \code{data-raw/book_tables.R}.
 }
 \usage{
 table_6_4
 }
 \description{
-Hypothetical schedule of potential outcomes and assigned treatments for illustration of a downstream experiment
+Hypothetical schedule of potential outcomes and assigned treatments for the
+illustration of a downstream experiment.
 }
 \keyword{datasets}

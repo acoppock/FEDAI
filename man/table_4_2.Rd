@@ -5,12 +5,30 @@
 \alias{table_4_2}
 \title{Table 4.2 from FEDAI}
 \format{
-A data.frame
+A data frame with 40 rows and 9 columns:
+\describe{
+\item{observation}{Subject number, matching Table 4.1}
+\item{block}{Block, one of three religious-composition strata}
+\item{X_pretest}{Pretest score, strongly predictive of the outcome}
+\item{X_pretest_weak}{Pretest score, weakly predictive of the outcome}
+\item{Z}{Realized treatment assignment under blocking}
+\item{prob}{Probability of assignment to treatment in this subject's block}
+\item{wt}{Inverse-probability weight}
+\item{Y_Z_0}{Untreated potential outcome}
+\item{Y_Z_1}{Treated potential outcome}
+}
+}
+\source{
+ISPS Data Archive study D081 \doi{10.60600/YU/VUH8KD}, file 42335
+(\code{GerberGreenBook_Chapter4_Combined_Table_4_1_4_2}). Built by
+\code{data-raw/book_tables.R}.
 }
 \usage{
 table_4_2
 }
 \description{
-Block random assignment of teacher incentives experiment. Columns: \code{observation}, \code{block}, \code{X_pretest}, \code{X_pretest_weak}, \code{Z} (realized treatment assignment), \code{prob} (assignment probability), \code{wt} (inverse-probability weight), \code{Y_Z_0}, \code{Y_Z_1}.
+The teacher incentives experiment of Table 4.1 under block random
+assignment. Assignment probabilities differ across blocks, so the design
+needs weights.
 }
 \keyword{datasets}

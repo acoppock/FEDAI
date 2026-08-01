@@ -5,12 +5,24 @@
 \alias{table_2_1}
 \title{Table 2.1 from FEDAI}
 \format{
-A data.frame
+A data frame with 7 rows and 4 columns:
+\describe{
+\item{Village}{Village number, 1 to 7}
+\item{Y_Z_0}{Untreated potential outcome}
+\item{Y_Z_1}{Treated potential outcome}
+\item{tau_i}{Village-level treatment effect, \code{Y_Z_1 - Y_Z_0}}
+}
+}
+\source{
+ISPS Data Archive study D081 \doi{10.60600/YU/VUH8KD}, file 42291
+(\code{GerberGreenBook_Chapter2_Table_2_1}). Built by \code{data-raw/book_tables.R}.
 }
 \usage{
 table_2_1
 }
 \description{
-This hypothetical dataset shows the treated (\code{Y_Z_1}) and untreated (\code{Y_Z_0}) potential outcomes for all seven villages, as well as a column for their difference, the village-level treatment effect \code{tau_i}
+This hypothetical dataset shows the treated (\code{Y_Z_1}) and untreated (\code{Y_Z_0})
+potential outcomes for all seven villages, as well as a column for their
+difference, the village-level treatment effect \code{tau_i}.
 }
 \keyword{datasets}

@@ -3,15 +3,29 @@
 \docType{data}
 \name{rind_bordia_1996}
 \alias{rind_bordia_1996}
-\title{rind_bordia_1996 from FEDAI}
+\title{Rind and Bordia (1996) restaurant tipping experiment}
 \format{
-A data.frame
+A data frame with 89 rows and 5 columns:
+\describe{
+\item{female}{Server is female}
+\item{happyface}{Smiley face drawn on the check}
+\item{tip}{Tip as a percentage of the bill}
+\item{xhappy}{Interaction of \code{female} and \code{happyface}}
+\item{tipround}{Tip rounded to the nearest whole number}
+}
+}
+\source{
+Rind, B. and Bordia, P. (1996). Effect on Restaurant Tipping of Male
+and Female Servers Drawing a Happy, Smiling Face on the Backs of Customers'
+Checks. Journal of Applied Social Psychology, 26(3), 218-225. ISPS Data
+Archive study D081 \doi{10.60600/YU/VUH8KD}, file 42341
+(\code{Rind_Bordia_JASP_1996}). Built by \code{data-raw/exercise_datasets.R}.
 }
 \usage{
 rind_bordia_1996
 }
 \description{
-Rind, B. and Bordia, P. (1996). Exercise dataset for FEDAI Chapter 9 (Exercise 9.6). Experiment on the effect of a server drawing a smiley face on restaurant tips.
-Columns: \code{female} (1 = female server), \code{happyface} (1 = smiley face drawn on check), \code{tip} (tip amount in cents), \code{xhappy} (interaction term), \code{tipround} (rounded tip).
+Exercise dataset for Chapter 9, Exercise 9.6. Servers randomly drew a smiley
+face on the check or did not; the design crosses that with server sex.
 }
 \keyword{datasets}

@@ -5,12 +5,28 @@
 \alias{table_7_7}
 \title{Table 7.7 from FEDAI}
 \format{
-A data.frame
+A data frame with 4 rows and 8 columns:
+\describe{
+\item{observation}{Subject number, 1 to 4}
+\item{Pair}{Matched pair, A or B}
+\item{R_Z_0}{Reports if assigned to control, 1 for everyone}
+\item{R_Z_1}{Reports if assigned to treatment}
+\item{Y_Z_0}{Untreated potential outcome}
+\item{Y_Z_1}{Treated potential outcome}
+\item{Y_Z_0_R_Z_0}{Outcome observed under control}
+\item{Y_Z_1_R_Z_1}{Outcome observed under treatment, the character string
+\code{"Missing"} for the subject who attrites. The column is character rather
+than numeric because the book's table prints the word}
+}
+}
+\source{
+ISPS Data Archive study D081 \doi{10.60600/YU/VUH8KD}, file 42265
+(\code{GerberGreenBook_Chapter7_Table_7_7}). Built by \code{data-raw/book_tables.R}.
 }
 \usage{
 table_7_7
 }
 \description{
-Hypothetical paired potential outcomes with attrition for four subjects. Columns: \code{observation}, \code{Pair}, \code{R_Z_0} (response indicator under control), \code{R_Z_1} (response indicator under treatment), \code{Y_Z_0}, \code{Y_Z_1}, \code{Y_Z_0_R_Z_0} (observed outcome if assigned control), \code{Y_Z_1_R_Z_1} (observed outcome if assigned treatment, "Missing" if attrited).
+Hypothetical paired potential outcomes with attrition for four subjects.
 }
 \keyword{datasets}

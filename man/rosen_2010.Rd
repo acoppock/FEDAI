@@ -3,17 +3,32 @@
 \docType{data}
 \name{rosen_2010}
 \alias{rosen_2010}
-\title{rosen_2010 from FEDAI}
+\title{Rosen (2010) legislator audit experiment}
 \format{
-A data.frame
+A data frame with 400 rows and 7 columns:
+\describe{
+\item{observation}{Letter number, 1 to 400}
+\item{letter_name}{Name signed on the letter, Colin or Jose}
+\item{X_legislator_hispanic}{Recipient legislator is Hispanic}
+\item{Z_hispanic}{Letter signed with the Hispanic name}
+\item{Z_grammar_label}{Grammar quality, good or bad}
+\item{Z_good_grammar}{Letter used good grammar}
+\item{Y_response}{Legislator replied}
+}
+}
+\source{
+Rosen, J. (2010). The Effects of Race and Grammar Quality on the
+Responsiveness of American State Legislators: A Field Experiment.
+Unpublished manuscript. ISPS Data Archive study D081
+\doi{10.60600/YU/VUH8KD}, file 42255 (\code{GerberGreebBook_Chapter9_Rosen}).
+Built by \code{data-raw/studies.R}.
 }
 \usage{
 rosen_2010
 }
 \description{
-Jeff Rosen. The Effects of Race and Grammar Quality on the Responsiveness of American State Legislators: A Field Experiment. Working paper, 2010.
-}
-\details{
-400 letters sent to state legislators in a 2x2 factorial experiment varying the apparent ethnicity of the author and the quality of the grammar. Columns: \code{observation}, \code{letter_name} (name used on letter), \code{X_legislator_hispanic} (1 = legislator is Hispanic), \code{Z_hispanic} (1 = Hispanic name), \code{Z_grammar_label} (factor: "good"/"bad"), \code{Z_good_grammar} (1 = good grammar), \code{Y_response} (1 = legislator replied).
+400 letters sent to state legislators in a 2x2 factorial experiment varying
+the apparent ethnicity of the writer and the quality of the grammar. Used in
+Chapter 9 as the running example of factorial designs and moderators.
 }
 \keyword{datasets}

@@ -3,15 +3,29 @@
 \docType{data}
 \name{bhavnani_2009}
 \alias{bhavnani_2009}
-\title{bhavnani_2009 from FEDAI}
+\title{Bhavnani (2009) gender quota experiment}
 \format{
-A data.frame
+A data frame with 227 rows and 4 columns:
+\describe{
+\item{controltreat}{Ward reserved for a woman candidate, with 109 missing
+values}
+\item{genderofwinner}{Winning candidate is a woman}
+\item{turnout}{Turnout percentage in 2002}
+\item{turnout97}{Turnout percentage in 1997, with 54 missing values}
+}
+}
+\source{
+Bhavnani, R. R. (2009). Do Electoral Quotas Work after They Are
+Withdrawn? Evidence from a Natural Experiment in India. American Political
+Science Review, 103(1), 23-35. ISPS Data Archive study D081
+\doi{10.60600/YU/VUH8KD}, file 42369 (\code{Bhavnani_APSR_2009}). Built by
+\code{data-raw/exercise_datasets.R}.
 }
 \usage{
 bhavnani_2009
 }
 \description{
-Bhavnani, R. R. (2009). Exercise dataset for FEDAI Chapter 10 (Exercise 10.4). Study of gender quotas and voter turnout in India.
-Columns: \code{controltreat} (control/treatment indicator), \code{genderofwinner} (gender of winning candidate), \code{turnout} (voter turnout), \code{turnout97} (1997 baseline turnout).
+Exercise dataset for Chapter 10, Exercise 10.4. Randomly assigned council
+seat reservations for women in Mumbai, and turnout in the following election.
 }
 \keyword{datasets}

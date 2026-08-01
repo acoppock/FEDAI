@@ -5,12 +5,25 @@
 \alias{table_4_1}
 \title{Table 4.1 from FEDAI}
 \format{
-A data.frame
+A data frame with 40 rows and 6 columns:
+\describe{
+\item{observation}{Subject number, 1 to 40}
+\item{X_pretest}{Pretest score, strongly predictive of the outcome}
+\item{X_pretest_weak}{Pretest score, weakly predictive of the outcome}
+\item{Z}{Realized treatment assignment}
+\item{Y_Z_0}{Untreated potential outcome}
+\item{Y_Z_1}{Treated potential outcome}
+}
+}
+\source{
+ISPS Data Archive study D081 \doi{10.60600/YU/VUH8KD}, file 42368
+(\code{GerberGreenBook_Chapter4_Table_4_1}). Built by \code{data-raw/book_tables.R}.
 }
 \usage{
 table_4_1
 }
 \description{
-Schedule of potential outcomes and pretest scores for a simulated teacher incentives experiment. Columns: \code{observation}, \code{X_pretest} (pretest score, strong covariate), \code{X_pretest_weak} (pretest score, weak covariate), \code{Z} (realized treatment assignment), \code{Y_Z_0}, \code{Y_Z_1}.
+Schedule of potential outcomes and pretest scores for a simulated teacher
+incentives experiment.
 }
 \keyword{datasets}

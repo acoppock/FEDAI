@@ -5,12 +5,26 @@
 \alias{table_8_2}
 \title{Table 8.2 from FEDAI}
 \format{
-A data.frame
+A data frame with 5 rows and 4 columns:
+\describe{
+\item{observation}{Village number, 1 to 5}
+\item{Y_A_0_Z_0}{Outcome when neither the village nor its neighbor is
+treated}
+\item{Y_A_1_Z_0}{Outcome when the neighbor is treated and the village is
+not, the spillover condition. \code{NA} for the village with no neighbor}
+\item{Y_A_0_Z_1}{Outcome when the village is treated and the neighbor is
+not}
+}
+}
+\source{
+ISPS Data Archive study D081 \doi{10.60600/YU/VUH8KD}, file 42380
+(\code{GerberGreenBook_Chapter8_Table_8_2}). Built by \code{data-raw/book_tables.R}.
 }
 \usage{
 table_8_2
 }
 \description{
-Hypothetical potential outcomes for 5 villages depending on their treatment status and the treatment status of adjacent villages.
+Hypothetical potential outcomes for five villages depending on their own
+treatment status (\code{Z}) and that of an adjacent village (\code{A}).
 }
 \keyword{datasets}

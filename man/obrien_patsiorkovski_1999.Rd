@@ -3,15 +3,32 @@
 \docType{data}
 \name{obrien_patsiorkovski_1999}
 \alias{obrien_patsiorkovski_1999}
-\title{obrien_patsiorkovski_1999 from FEDAI}
+\title{O'Brien and Patsiorkovski (1999) rural Russia survey}
 \format{
-A data.frame
+A data frame with 462 rows and 8 columns:
+\describe{
+\item{sexresp6}{Respondent sex, coded 1 or 2}
+\item{ageresp6}{Respondent age in years, 19 to 92}
+\item{group6}{Group, 1 to 4}
+\item{memberc6}{Membership indicator, coded 1 or 2}
+\item{index95}{Outcome index, 1995 wave, 3 to 9}
+\item{index96}{Outcome index, 1996 wave, 3 to 9}
+\item{index97}{Outcome index, 1997 wave, 3 to 9}
+\item{randsort}{Uniform random number, one per household, for sorting into
+a mock random assignment}
+}
+}
+\source{
+O'Brien, D. J. and Patsiorkovski, V. V. (1999). ISPS Data Archive
+study D081 \doi{10.60600/YU/VUH8KD}, file 42331
+(\code{OBrien_Patsiorkovski_ICPSR_1999}). Built by
+\code{data-raw/exercise_datasets.R}.
 }
 \usage{
 obrien_patsiorkovski_1999
 }
 \description{
-O'Brien, D. J. and Patsiorkovski, V. V. (1999). Exercise dataset for FEDAI Chapter 4 (Exercise 4.6). Rural Russia survey data on resource group membership and outcome indices across three years.
-Columns: \code{sexresp6} (respondent sex), \code{ageresp6} (respondent age), \code{group6} (treatment group), \code{memberc6} (group membership count), \code{index95}, \code{index96}, \code{index97} (outcome indices across years), \code{randsort} (randomization sort variable).
+Exercise dataset for Chapter 4, Exercise 4.6. Rural Russian households
+surveyed over three years, used for an exercise in mock random assignment.
 }
 \keyword{datasets}

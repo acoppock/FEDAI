@@ -5,12 +5,24 @@
 \alias{table_12_5}
 \title{Table 12.5 from FEDAI}
 \format{
-A data.frame
+A data frame with 4 rows and 3 columns:
+\describe{
+\item{type}{Municipality type, honest or corrupt}
+\item{Y_Z_0}{Turnout under control}
+\item{Y_Z_1}{Turnout under the treatment tailored to that type}
+}
+}
+\source{
+Authored for this edition rather than taken from the archive. Built
+by \code{data-raw/book_tables.R}.
 }
 \usage{
 table_12_5
 }
 \description{
-Hypothetical potential outcomes for the Chong, De La O, Karlan, and Wantchekon (2011) municipal audit information experiment. Columns: type (honest or corrupt municipality), Y_Z_0 (turnout under control), Y_Z_1 (turnout under treatment).
+Hypothetical potential outcomes for a tailored-treatment design based on the
+Chong, De La O, Karlan and Wantchekon (2011) municipal audit experiment. The
+content of treatment depends on the subject's type, so some cells of the
+schedule of potential outcomes are never observable.
 }
 \keyword{datasets}
