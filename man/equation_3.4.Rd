@@ -17,8 +17,15 @@ equation_3.4(var_Y0, var_Y1, cov_Y0_Y1, N, m)
 
 \item{m}{the number of units assigned to treatment}
 }
+\value{
+A numeric scalar, the standard error of the difference-in-means
+estimator.
+}
 \description{
-The true standard error of a two-arm experiment under complete random assignment
+Equation 3.4 of FEDAI. The standard error depends on the variance of both
+schedules of potential outcomes and on their covariance, which is why it
+cannot be computed from observed data: no unit reveals both of its potential
+outcomes.
 }
 \examples{
 var_Y0 <- pop_var(table_2_1$Y_Z_0)
@@ -30,5 +37,4 @@ equation_3.4(var_Y0 = var_Y0,
              cov_Y0_Y1 = cov_Y0_Y1,
              N = 7,
              m = 2)
-
 }

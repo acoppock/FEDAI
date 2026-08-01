@@ -12,7 +12,7 @@ pop_sd(x, na.rm = FALSE)
 \item{na.rm}{logical. Should missing values be removed?}
 }
 \description{
-Population standard deviation
+Divides by \code{N} rather than \code{N - 1}. See \code{\link[=pop_var]{pop_var()}}.
 }
 \examples{
 x <- c(1, 2, 3, 4)

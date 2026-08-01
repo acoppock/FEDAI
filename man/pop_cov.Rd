@@ -11,10 +11,12 @@ pop_cov(x, y, na.rm = FALSE)
 
 \item{y}{a numeric vector}
 
-\item{na.rm}{logical. Should missing values be removed?}
+\item{na.rm}{logical. Should missing values be removed? When \code{TRUE} a pair is
+dropped when either element is missing, and the divisor is the number of
+complete pairs.}
 }
 \description{
-Population covariance
+Divides by \code{N} rather than \code{N - 1}. See \code{\link[=pop_var]{pop_var()}}.
 }
 \examples{
 x <- c(1, 2, 3, 4)

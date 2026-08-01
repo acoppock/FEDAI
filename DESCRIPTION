@@ -1,21 +1,26 @@
 Package: FEDAI
 Type: Package
-Title: Tables and Datasets used in Field Experiments: Design, Analysis, and Interpretation
+Title: Tables and Datasets Used in 'Field Experiments: Design, Analysis, and Interpretation'
 Version: 0.1.0
 Authors@R: person("Alexander", "Coppock", email = "acoppock@gmail.com", role = c("aut", "cre"), comment = c(ORCID = "0000-0002-5733-2386"))
-Description: Provides the tables, datasets, and helper functions used in
-    Field Experiments: Design, Analysis, and Interpretation by Green and Gerber.
+Description: Provides the tables, study datasets, and helper functions used in
+    Field Experiments: Design, Analysis, and Interpretation by Alan S. Gerber
+    and Donald P. Green (2012, ISBN:9780393979954). The datasets are the ones
+    distributed by the ISPS Data Archive as study D081
+    <doi:10.60600/YU/VUH8KD>; 'data-raw/' records how each was built from that
+    archive.
+URL: https://alexandercoppock.com/FEDAI/, https://github.com/acoppock/FEDAI
+BugReports: https://github.com/acoppock/FEDAI/issues
 License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true
 Roxygen: list(markdown = TRUE)
 Imports:
     dplyr,
-    tibble,
-    DeclareDesign,
-    randomizr
+    tibble
 Suggests:
     testthat (>= 3.0.0),
-    DescTools
+    DeclareDesign,
+    randomizr
 Config/testthat/edition: 3
 Config/roxygen2/version: 8.0.0

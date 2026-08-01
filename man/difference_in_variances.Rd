@@ -15,15 +15,33 @@ A one-row \code{\link[tibble:tibble]{tibble::tibble()}} with columns \code{estim
 (Var(Y|Z=1) - Var(Y|Z=0)) and \code{p.value}.
 }
 \description{
-Computes the difference in sample variances between treated and control
-units and tests for equality using Bonett's method via
-\code{\link[DescTools:VarTest]{DescTools::VarTest()}}. Used in Chapter 9 to diagnose whether a treatment
-changes the dispersion of outcomes, not just their mean.
+Computes the difference in sample variances between treated and control units
+and tests the null that the two variances are equal. Used in Chapter 9 as an
+indirect test of the null of constant treatment effects: under constant
+effects the two schedules of potential outcomes have equal variances, so a
+difference in variances is evidence of heterogeneity.
 }
+\section{Which test this is}{
+
+\code{\link[stats:var.test]{stats::var.test()}}, the classical F test for the ratio of two variances.
+The F test assumes the outcome is normally distributed within each arm and is
+sensitive to departures from that assumption, so a small p-value can reflect
+kurtosis rather than a difference in dispersion. Levene- and Bonett-type
+tests trade power for robustness against exactly that.
+
+This function previously called \code{DescTools::VarTest(method = "bonett")}, which
+documented a Bonett test that never ran: \code{VarTest()} takes no \code{method}
+argument in its two-sample branch, so the argument fell into \code{...} and the F
+test was performed. Calling \code{\link[stats:var.test]{stats::var.test()}} directly gives the same
+numbers under a name that describes them.
+
+The signature takes \code{data} first and returns one row, which is what
+\code{DeclareDesign::label_estimator()} expects of an estimator handler.
+}
+
 \examples{
-\dontrun{
-  dat <- data.frame(Y = c(rnorm(50, sd = 1), rnorm(50, sd = 2)), Z = rep(0:1, each = 50))
-  difference_in_variances(dat)
-}
+dat <- data.frame(Y = c(rnorm(50, sd = 1), rnorm(50, sd = 2)),
+                  Z = rep(0:1, each = 50))
+difference_in_variances(dat)
 
 }

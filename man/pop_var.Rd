@@ -9,10 +9,15 @@ pop_var(x, na.rm = FALSE)
 \arguments{
 \item{x}{a numeric vector}
 
-\item{na.rm}{logical. Should missing values be removed?}
+\item{na.rm}{logical. Should missing values be removed? When \code{FALSE} (the
+default) a single missing value makes the result \code{NA}, as in
+\code{\link[stats:var]{stats::var()}}. When \code{TRUE} missing values are dropped and the divisor is
+the number of values that remain.}
 }
 \description{
-Population variance
+Divides by \code{N} rather than \code{N - 1}, which is what a schedule of potential
+outcomes calls for: the seven villages in Table 2.1 are the population, not a
+sample drawn from one. \code{\link[stats:var]{stats::var()}} divides by \code{N - 1}.
 }
 \examples{
 x <- c(1, 2, 3, 4)
@@ -20,4 +25,7 @@ pop_var(x) # divides by n
 
 # For comparision
 var(x) # divides by n - 1
+
+pop_var(c(1, 2, NA, 4)) # NA
+pop_var(c(1, 2, NA, 4), na.rm = TRUE) # divides by 3
 }

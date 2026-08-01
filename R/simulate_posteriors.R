@@ -45,15 +45,15 @@ posterior_mean_fn <- function(x_e, g, sigma_g, sigma_B, sigma_x) {
 #' @importFrom stats rnorm
 #' @export
 simulate_posteriors <- function(N, sigma_B, sims = 5000,
-                                tau     = 0.1,
+                                tau = 0.1,
                                 sigma_Y = 1,
                                 sigma_g = 0.2,
-                                g       = 0,
-                                beta    = 0) {
+                                g = 0,
+                                beta = 0) {
   sigma_x <- sigma_Y / sqrt(N)
-  B       <- rnorm(sims, mean = beta, sd = sigma_B)
-  x_e     <- rnorm(sims, mean = tau + B, sd = sigma_x)
-  post    <- posterior_mean_fn(x_e, g = g, sigma_g = sigma_g,
-                               sigma_B = sigma_B, sigma_x = sigma_x)
+  B <- rnorm(sims, mean = beta, sd = sigma_B)
+  x_e <- rnorm(sims, mean = tau + B, sd = sigma_x)
+  post <- posterior_mean_fn(x_e, g = g, sigma_g = sigma_g,
+                            sigma_B = sigma_B, sigma_x = sigma_x)
   tibble::tibble(N = N, sigma_B = sigma_B, posterior_mean = post)
 }

@@ -19,9 +19,6 @@
 #'   with an added `study` column giving each study's position in its literature's
 #'   random ordering.
 #'
-#' @importFrom DeclareDesign declare_model declare_inquiry declare_assignment
-#'   declare_measurement declare_estimator redesign simulate_designs
-#' @importFrom randomizr complete_ra
 #' @importFrom stats rbinom
 #' @export
 make_studies <- function(N, N_studies, N_literatures) {
@@ -32,23 +29,29 @@ make_studies <- function(N, N_studies, N_literatures) {
     stop("Package 'randomizr' is required. Install it with install.packages('randomizr').")
   }
 
+  # `redesign()` can only replace a parameter that already exists when the
+  # design is declared, so proportion_women needs a value here even though every
+  # simulation overwrites it. Without it the design fails at step 1 with
+  # "object 'proportion_women' not found".
+  proportion_women <- 0
+
   base_design <-
-    declare_model(
+    DeclareDesign::declare_model(
       N = N,
       Y_Z_0 = rbinom(N, size = 1, prob = 0.5 + 0.10 * proportion_women * 0),
       Y_Z_1 = rbinom(N, size = 1, prob = 0.5 + 0.10 * proportion_women * 1)
     ) +
-    declare_inquiry(SATE = mean(Y_Z_1 - Y_Z_0)) +
-    declare_assignment(Z = complete_ra(N)) +
-    declare_measurement(Y = ifelse(Z == 1, Y_Z_1, Y_Z_0)) +
-    declare_estimator(Y ~ Z, inquiry = "SATE")
+    DeclareDesign::declare_inquiry(SATE = mean(Y_Z_1 - Y_Z_0)) +
+    DeclareDesign::declare_assignment(Z = randomizr::complete_ra(N)) +
+    DeclareDesign::declare_measurement(Y = ifelse(Z == 1, Y_Z_1, Y_Z_0)) +
+    DeclareDesign::declare_estimator(Y ~ Z, inquiry = "SATE")
 
   base_design |>
-    redesign(
-      N                = N,
+    DeclareDesign::redesign(
+      N = N,
       proportion_women = seq(-0.5, 0.5, length.out = N_studies)
     ) |>
-    simulate_designs(sims = N_literatures) |>
+    DeclareDesign::simulate_designs(sims = N_literatures) |>
     suppressWarnings() |>
     dplyr::group_by(.data$sim_ID) |>
     dplyr::mutate(study = sample(dplyr::row_number())) |>
