@@ -111,7 +111,10 @@ table_4_2 <-
     wt,
     Y_Z_0 = y0,
     Y_Z_1 = y1
-  )
+  ) |>
+  zap_label() |>
+  zap_labels() |>
+  zap_formats()
 
 # table_5_1 ----
 
@@ -254,16 +257,19 @@ table_8_4 <-
     A = str_sub(str_pad(exposure, 2, "left", pad = "0"), 1, 1),
     Z = str_sub(str_pad(exposure, 2, "left", pad = "0"), 2, 2),
     exposure = str_pad(exposure, 2, "left", pad = "0"),
-    prob_A_0_Z_0 = prob00,
-    prob_A_0_Z_1 = prob01,
-    prob_A_1_Z_0 = prob10,
-    prob_A_1_Z_1 = prob11,
+    prob_A_0_Z_0 = as.numeric(prob00),
+    prob_A_0_Z_1 = as.numeric(prob01),
+    prob_A_1_Z_0 = as.numeric(prob10),
+    prob_A_1_Z_1 = as.numeric(prob11),
     Y_A_0_Z_0 = y00,
     Y_A_0_Z_1 = y01,
     Y_A_1_Z_0 = y10,
     Y_A_1_Z_1 = y11,
     Y = y
   ) |>
+  zap_label() |>
+  zap_labels() |>
+  zap_formats() |>
   bind_cols(coords) |>
   relocate(x, y, .after = hotspot)
 

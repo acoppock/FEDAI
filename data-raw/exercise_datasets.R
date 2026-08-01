@@ -13,6 +13,7 @@ source("data-raw/helpers.R")
 
 obrien_patsiorkovski_1999 <-
   read_dta(d081_file(42331)) |>
+  zap_label() |>
   zap_labels() |>
   zap_formats() |>
   as.data.frame()
@@ -21,6 +22,7 @@ obrien_patsiorkovski_1999 <-
 
 guan_green_2006 <-
   read_dta(d081_file(42342)) |>
+  zap_label() |>
   zap_labels() |>
   zap_formats() |>
   as.data.frame()
@@ -35,6 +37,7 @@ hyde_2010 <-
 
 rind_bordia_1996 <-
   read_dta(d081_file(42341)) |>
+  zap_label() |>
   zap_labels() |>
   zap_formats() |>
   as.data.frame()
@@ -43,6 +46,7 @@ rind_bordia_1996 <-
 
 fieldhouse_etal_2010 <-
   read_dta(d081_file(42348)) |>
+  zap_label() |>
   zap_labels() |>
   zap_formats() |>
   as.data.frame()
@@ -51,6 +55,7 @@ fieldhouse_etal_2010 <-
 
 bhavnani_2009 <-
   read_dta(d081_file(42369)) |>
+  zap_label() |>
   zap_labels() |>
   zap_formats() |>
   as.data.frame()
@@ -75,6 +80,7 @@ titiunik_2010 <-
     party = as.character(as_factor(party)),
     dshort_term = as.character(as_factor(dshort_term))
   ) |>
+  zap_label() |>
   zap_labels() |>
   zap_formats() |>
   as.data.frame()

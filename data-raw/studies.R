@@ -17,7 +17,10 @@ arceneaux_2005 <-
     Z = treatment,
     D_contact = contact,
     Y_voted_2003 = vote03
-  )
+  ) |>
+  zap_label() |>
+  zap_labels() |>
+  zap_formats()
 
 # clingingsmith_khwaja_kremer_2009 ----
 
@@ -30,6 +33,7 @@ clingingsmith_khwaja_kremer_2009 <-
     Z_hajj = success,
     Y_views = views
   ) |>
+  zap_label() |>
   zap_labels() |>
   zap_formats()
 
@@ -51,5 +55,6 @@ rosen_2010 <-
     Z_good_grammar = if_else(Z_grammar_label == "good", 1, 0),
     Y_response = zap_label(Response)
   ) |>
+  zap_label() |>
   zap_labels() |>
   zap_formats()

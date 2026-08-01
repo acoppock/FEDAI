@@ -436,3 +436,41 @@ test_that("titiunik_2010 has the documented shape", {
   )
 })
 
+
+test_that("no dataset leaks haven attributes from its Stata source", {
+  # read_dta() carries value labels, variable labels and Stata format strings.
+  # zap_labels() alone removes only the first of the three, which is how
+  # `label` and `format.stata` attributes reached 11 datasets once. Factors
+  # legitimately carry levels and class; nothing else should carry anything.
+  datasets <- utils::data(package = "FEDAI")$results[, "Item"]
+
+  leaked <- unlist(lapply(datasets, function(nm) {
+    x <- get(nm, envir = asNamespace("FEDAI"))
+    if (is.matrix(x)) return(NULL)
+    stray <- vapply(x, function(col) {
+      allowed <- if (is.factor(col)) c("levels", "class") else character(0)
+      length(setdiff(names(attributes(col)), allowed)) > 0
+    }, logical(1))
+    if (any(stray)) paste0(nm, "$", names(x)[stray]) else NULL
+  }))
+
+  expect_equal(leaked, NULL)
+})
+
+test_that("every column has the type the documentation implies", {
+  # A probability read from Stata as text stays text unless the build converts
+  # it, and a character probability column breaks anything that combines it
+  # with a numeric one. table_8_4 shipped that way for exactly one session.
+  expect_type(table_8_4$prob_A_0_Z_0, "double")
+  expect_type(table_8_4$prob_A_0_Z_1, "double")
+  expect_type(table_8_4$prob_A_1_Z_0, "double")
+  expect_type(table_8_4$prob_A_1_Z_1, "double")
+  expect_type(table_8_4$hotspots_within_500m, "double")
+  expect_type(table_8_4$hotspots_within_750m, "double")
+
+  # The exposure condition and its two components stay character: they are
+  # labels, and "00" must not become 0.
+  expect_type(table_8_4$A, "character")
+  expect_type(table_8_4$Z, "character")
+  expect_type(table_8_4$exposure, "character")
+})
