@@ -1,0 +1,8 @@
+pandoc: 3.9.0.2
+pkgdown: 2.2.1
+pkgdown_sha: ~
+articles: {}
+last_built: 2026-08-01T00:19Z
+urls:
+  reference: https://alexandercoppock.com/FEDAI/reference
+  article: https://alexandercoppock.com/FEDAI/articles
