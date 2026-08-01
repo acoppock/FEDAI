@@ -13,3 +13,8 @@ data-raw/cache/
 
 # Private dev log, mirrored to claude_control
 notes/
+
+# pkgdown site, deployed to gh-pages rather than tracked here
+docs/
+*.Rcheck/
+*.tar.gz
